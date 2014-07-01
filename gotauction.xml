@@ -1,0 +1,125 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension type="component" version="3.0" method="upgrade">
+	<name>com_gotauction</name>
+	<author>HNL Applications</author>
+	<creationDate>June 2014</creationDate>
+	<copyright>(C) 2014 HNL Applications. All rights reserved.
+	</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>lloyd@gotweb.co.za</authorEmail>
+	<authorUrl>www.hnlapp.co.za</authorUrl>
+	<version>1.0.1</version>
+	<description>COM_GOTAUCTION_XML_DESCRIPTION</description>
+	
+	<scriptfile>script.php</scriptfile>
+	
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	
+	<files folder="site">
+		<filename>index.html</filename>
+		<filename>controller.php</filename>
+		<filename>gotauction.php</filename>
+		<folder>controllers</folder>
+		<folder>models</folder>
+		<folder>language</folder>
+		<folder>views</folder>
+	</files>
+	
+	<media destination = "com_gotauction" folder = "media">
+		<filename>index.html</filename>
+		<folder>css</folder>
+		<folder>images</folder>
+	</media>
+	
+	<administration>
+		<menu img="class:categories">COM_GOTAUCTION_MENU</menu>
+		
+		<files folder="admin">
+			<filename>index.html</filename>
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>gotauction.php</filename>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+		
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB/en-GB.com_gotauction.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_gotauction.sys.ini</language>
+		</languages>
+	</administration>
+</extension>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension type="component" version="3.0" method="upgrade">
+	<name>com_gotauction</name>
+	<author>HNL Applications</author>
+	<creationDate>June 2014</creationDate>
+	<copyright>(C) 2014 HNL Applications. All rights reserved.
+	</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>lloyd@gotweb.co.za</authorEmail>
+	<authorUrl>www.hnlapp.co.za</authorUrl>
+	<version>1.0.1</version>
+	<description>COM_GOTAUCTION_XML_DESCRIPTION</description>
+	
+	<scriptfile>script.php</scriptfile>
+	
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	
+	<files folder="site">
+		<filename>index.html</filename>
+		<filename>controller.php</filename>
+		<filename>gotauction.php</filename>
+		<folder>controllers</folder>
+		<folder>models</folder>
+		<folder>language</folder>
+		<folder>views</folder>
+	</files>
+	
+	<media destination = "com_gotauction" folder = "media">
+		<filename>index.html</filename>
+		<folder>css</folder>
+		<folder>images</folder>
+	</media>
+	
+	<administration>
+		<menu img="class:categories">COM_GOTAUCTION_MENU</menu>
+		
+		<files folder="admin">
+			<filename>index.html</filename>
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>gotauction.php</filename>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+		
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB/en-GB.com_gotauction.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_gotauction.sys.ini</language>
+		</languages>
+	</administration>
+</extension>
+>>>>>>> 0e20315f6f7ce8c5520868ff5b9cc2927a8627b4

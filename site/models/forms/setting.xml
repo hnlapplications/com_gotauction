@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+	<fieldset name="settings_fields">
+		<field name="company_name" type="text"  label="COM_GOTAUCTION_COMPANY_NAME_LABEL" description="COM_GOTAUCTION_COMPANY_NAME_DESC" required="true"/>
+		<field name="director" type="text"  label="COM_GOTAUCTION_DIRECTOR_LABEL" description="COM_GOTAUCTION_DIRECTOR_DESC" required="true"/>
+		<field name="contact_no" type="text"  label="COM_GOTAUCTION_CONTACT_NUMBER_LABEL" description="COM_GOTAUCTION_CONTACT_NUMBER_DESC" required="true" />
+		<field name="email" type="email"  label="COM_GOTAUCTION_EMAIL_LABEL" description="COM_GOTAUCTION_EMAIL_DESC" required="true"/>
+		<field name="logo" type="media"  label="COM_GOTAUCTION_LOGO_LABEL" description="COM_GOTAUCTION_LOGO_DESC" required="true"/>
+		<field name="street_number" type="text"  label="COM_GOTAUCTION_STREET_NUMBER_LABEL" description="COM_GOTAUCTION_STREET_NUMBER_DESC" required="true"/>
+		<field name="street_name" type="text"  label="COM_GOTAUCTION_STREET_NAME_LABEL" description="COM_GOTAUCTION_STREET_NAME_DESC" required="true"/>
+		<field name="suburb" type="text"  label="COM_GOTAUCTION_SUBURB_LABEL" description="COM_GOTAUCTION_SUBURB_DESC" required="true"/>
+		<field name="city" type="text"  label="COM_GOTAUCTION_CITY_LABEL" description="COM_GOTAUCTION_CITY_DESC" required="true"/>
+		<field name="post_code" type="text"  label="COM_GOTAUCTION_POST_CODE_LABEL" description="COM_GOTAUCTION_POST_CODE_DESC" required="true"/>
+		<field name="gps_x" type="text"  label="COM_GOTAUCTION_GPS_X_LABEL" description="COM_GOTAUCTION_GPS_X_DESC" required="true" />
+		<field name="gps_y" type="text"  label="COM_GOTAUCTION_GPS_Y_LABEL" description="COM_GOTAUCTION_GPS_Y_DESC" required="true" />
+		
+		
+	</fieldset>
+</form>
