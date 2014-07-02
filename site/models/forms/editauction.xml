@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+	<fieldset name="auction_fields">
+		<field name="id" 				type="text" 				label="GLOBAL_FIELD_ID_LABEL" readonly="true" class="readonly" />
+		<field name="title" 			type="text"  				label="COM_GOTAUCTION_TITLE"   />
+		<field name="auction_id" 		type="text"  				label="COM_GOTAUCTION_AUCTION_ID"   />
+		<field name="auction_type" 		type="auctiontypes"  		label="COM_GOTAUCTION_AUCTION_TYPE"   />
+		<field name="auctioneer" 		type="auctioneers"  		label="COM_GOTAUCTION_AUCTIONEER"   />
+		<field name="auction_category" 	type="auctioncategories"  	label="COM_GOTAUCTION_AUCTION_CATEGORY"   />
+		<field name="description" 		type="text"  				label="COM_GOTAUCTION_DESCRIPTION"   />
+		<field name="date" 				type="calendar"  			label="COM_GOTAUCTION_DATE" default="NOW"  />
+		<field name="time" 				type="text"  				label="COM_GOTAUCTION_TIME"   />
+		<field name="viewing" 			type="list" label="COM_GOTAUCTION_VIEWING" description="" default="" >
+		  <option value="0">No</option>
+		  <option value="1">Yes</option>
+		</field>
+		<field name="viewing_date" 		type="calendar"				label="COM_GOTAUCTION_VIEWING_DATE" default="NOW"  />
+		<field name="viewing_time"	 	type="text"  				label="COM_GOTAUCTION_VIEWING_TIME"   />
+		<field name="terms" 			type="textarea"				label="COM_GOTAUCTION_TERMS" rows="10" cols="10"  />
+		<field name="street_number" 	type="text"		  			label="COM_GOTAUCTION_STREET_NUMBER_LABEL"   />
+		<field name="street_name" 		type="text" 	 			label="COM_GOTAUCTION_STREET_NAME_LABEL"   />
+		<field name="suburb" 			type="text"  				label="COM_GOTAUCTION_SUBURB_LABEL"   />
+		<field name="city" 				type="text"  				label="COM_GOTAUCTION_CITY_LABEL"   />
+		<field name="post_code" 		type="text"  				label="COM_GOTAUCTION_POST_CODE_LABEL"   />
+		<field name="gps_x" 			type="text" 	 			label="COM_GOTAUCTION_GPS_X_LABEL"   />
+		<field name="gps_y" 			type="text"  				label="COM_GOTAUCTION_GPS_Y_LABEL"   />
+
+		
+	</fieldset>
+</form>

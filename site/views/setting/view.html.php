@@ -49,8 +49,16 @@ class GotauctionViewSetting extends JViewLegacy
 		$results=$db->loadObject();
 		if ($results==null)
 		{
-			//do nothing
-			return null;
+			//return a blank address
+			$address=new stdClass();
+			$address->street_number="";
+			$address->street_name="";
+			$address->suburb="";
+			$address->city="";
+			$address->post_code="";
+			$address->gps_x="";
+			$address->gps_y="";
+			return $address;
 		}
 		else
 		{
