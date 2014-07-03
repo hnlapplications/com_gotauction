@@ -1,7 +1,6 @@
 <?php
 
 defined("_JEXEC") or die();
-print_r($this->items);
 ini_set('display_startup_errors',1);
 ini_set('display_errors',1);
 error_reporting(-1);
@@ -31,7 +30,6 @@ $sortFields=$this->getSortFields()
 	<div class="table auction-table" id="auctionList">
 
 				<div class="grid_auction">
-					img<br />
 					<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auction&layout=default&id=" . $this->item->id); ?>"><strong><?php echo $this->item->title; ?></strong><br /></a>
 					<?php echo $this->item->date . ' @ ' . $this->item->time; ?>
 				</div>

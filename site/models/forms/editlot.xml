@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+	<fieldset name="lot_fields">
+		<field name="id" 				type="text" 				label="GLOBAL_FIELD_ID_LABEL" readonly="true" class="readonly" />
+		<field name="title" 			type="text"  				label="COM_GOTAUCTION_TITLE"   />
+		<field name="auction_id"		type="auctions"				label="COM_GOTAUCTION_AUCTION_LABEL" />
+		<field name="description"		type="textarea"				label="COM_GOTAUCTION_DESCRIPTION" rows="10" cols="10" />
+		<field name="lot_type"			type="lottype"				label="COM_GOTAUCTION_LOT_TYPE_LABEL" />
+		<field name="quantity"			type="integer"				label="COM_GOTAUCTION_QUANTITY_LABEL" first="1" last="100" step="1" />
+		<field name="vat"				type="list" 				label="COM_GOTAUCTION_VAT_LABEL" default="0">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</field>
+		
+		
+				
+	</fieldset>
+</form>

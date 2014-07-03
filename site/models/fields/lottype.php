@@ -14,7 +14,7 @@ JFormHelper::loadFieldClass('list');
  * @subpackage          com_my
  * @since               1.6
  */
-class JFormFieldAuctions extends JFormFieldList
+class JFormFieldLottype extends JFormFieldList
 {
         /**
          * The form field type.
@@ -22,7 +22,7 @@ class JFormFieldAuctions extends JFormFieldList
          * @var         string
          * @since       1.6
          */
-        protected $type = 'Auctions';
+        protected $type = 'Lottype';
  
         /**
          * Method to get the field options.
@@ -39,9 +39,9 @@ class JFormFieldAuctions extends JFormFieldList
                 $query  = $db->getQuery(true);
  
                 $query->select('id As value, title As text');
-                $query->from('#__gotauction_auction AS a');
+                $query->from('#__gotauction_lot_type AS a');
                 $query->order('a.title');
-                //$query->where('a.state = 1');
+               // $query->where('a.state = 1');
  
                 // Get the options.
                 $db->setQuery($query);
