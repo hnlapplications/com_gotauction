@@ -13,6 +13,7 @@ class GotauctionControllerEditlot extends JControllerForm
 {
 	function __construct()
 	{
+		
 		parent::__construct();
 	}	
 	
@@ -63,6 +64,7 @@ class GotauctionControllerEditlot extends JControllerForm
 		{
 			foreach($file as $f)
 			{
+				if ($f['size']==0) continue;
 				$filename=time() . "_" . JFile::makeSafe($f['name']);
 				$src=$f['tmp_name'];
 				$dest=$path . DS . $filename;
@@ -78,7 +80,7 @@ class GotauctionControllerEditlot extends JControllerForm
 				}
 				else
 				{
-					$app->enqueueMessage("File upload failed on " . $filename);
+					$app->enqueueMessage("File upload failed on " . $lot_id);
 				}
 			}
 			
@@ -86,7 +88,28 @@ class GotauctionControllerEditlot extends JControllerForm
 			
 		}
 		//set redirect
-		$this->setRedirect(JRoute::_("index.php?option=com_gotauction&view=auction&layout=default&id=" .$lot->auction_id));
+		
+		$this->setRedirect(JRoute::_("index.php?option=com_gotauction&view=lot&layout=default&id=" .$lot->id));
 			
+	}
+	
+	public function cancel()
+	{
+		$app=JFactory::getApplication();
+		$input=JFactory::getApplication()->input;
+		$referer=$input->server->get('HTTP_REFERER', 'null', 'string');
+		
+		$pos=strpos($referer, '&auction=');
+		if ($pos!=null)
+		{
+			$referer=substr($referer, $pos + 9 );
+			$this->setRedirect(JRoute::_('index.php?option=com_gotauction&view=auction&id=' . $referer));
+		}
+		else
+		{
+			$data=JRequest::getVar('jform', array(), 'post', 'array');
+			$this->setRedirect(JRoute::_('index.php?option=com_gotauction&view=lot&id=' . $referer));
+			//~ $app->enqueueMessage("<pre>" . print_r($input, true) . "</pre>");
+		}
 	}
 }

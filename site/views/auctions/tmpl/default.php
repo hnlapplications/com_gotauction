@@ -37,9 +37,7 @@ $sortFields=$this->getSortFields()
 	
 	/************ END Joomla! functions **********************/
 	
-	
-	
-	
+
 </script>
 
 
@@ -48,7 +46,7 @@ $sortFields=$this->getSortFields()
 		echo $this->addToolbar();
 	?>
 	<div id="j-main-contaner">
-	<form action="<?php echo JRoute::_('index.php?option=com_gotauction&view=auctions'); ?>" method="POST" id="adminForm" name="adminForm">
+	<form action='<?php echo JRoute::_('index.php?option=com_gotauction&view=auctions'); ?>' method="POST" id="adminForm" name="adminForm">
 		
 		
 		
@@ -110,7 +108,7 @@ $sortFields=$this->getSortFields()
 		<!--------------- END ORDERING STUFFS -------------------->
 		
 		<input type = "hidden" name = "task" value = "" />
-		<input type = "hidden" name = "option" value = "com_gottodo" />
+		<input type = "hidden" name = "option" value = "com_gotauction" />
 		<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
 	<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
 		

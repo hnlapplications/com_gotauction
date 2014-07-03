@@ -3,7 +3,7 @@ defined ('_JEXEC') or die();
 JHtml::_('script', 'system/core.js', false, true);
 class GotauctionViewAuction extends JViewLegacy
 {
-	protected $items;
+	protected $item;
 	protected $state; //ordering
 	protected $lots;
 	public function display($tpl=null)

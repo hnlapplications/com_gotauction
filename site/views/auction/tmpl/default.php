@@ -35,7 +35,7 @@ $sortFields=$this->getSortFields()
 				</div>
 				<div class="grid_lots">
 					<?php foreach($this->lots as $lot): ?>
-						<?php print_r($lot); ?><hr />
+						<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=lot&layout=default&id=" . $lot->id); ?>"><?php print_r($lot); ?></a><hr />
 					<?php endforeach; ?>
 				</div>
 		

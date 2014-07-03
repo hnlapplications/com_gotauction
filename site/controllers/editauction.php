@@ -84,4 +84,14 @@ class GotauctionControllerEditauction extends JControllerForm
 		
 		$this->setRedirect("index.php?option=com_gotauction&view=auctions");	
 	}
+	
+	public function cancel()
+	{
+		$app=JFactory::getApplication();
+		$input=JFactory::getApplication()->input;
+		$referer=$input->server->get('HTTP_REFERER', 'null', 'string');
+		
+		$referer=substr($referer, strpos($referer, '&id=')+4);
+		$this->setRedirect(JRoute::_('index.php?option=com_gotauction&view=auction&id=' . $referer));
+	}
 }
