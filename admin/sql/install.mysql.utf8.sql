@@ -126,3 +126,14 @@ CREATE TABLE IF NOT EXISTS `#__gotauction_settings` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+--
+-- Table structure for table `#__gotauction_settings`
+--
+
+CREATE TABLE IF NOT EXISTS `#__gotauction_images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `image` varchar(100) NOT NULL,
+  `lot_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+

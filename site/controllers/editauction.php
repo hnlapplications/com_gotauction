@@ -20,6 +20,15 @@ class GotauctionControllerEditauction extends JControllerForm
 		$db=JFactory::getDbo();
 		$query=$db->getQuery(true);
 		//here we will just separate the address from the rest of the data and save it before everything else...
+		//first check if this is a new or existing auction
+		$isNew=true;
+		$auction_id="";
+		if (isset($data['id']) && $data['id']!=0)
+		{
+			$isNew=false;
+			$auction_id=$data['id'];
+		}
+		
 		$address=new stdClass();
 		$address->street_number=$data['street_number'];
 		$address->street_name=$data['street_name'];
@@ -27,11 +36,26 @@ class GotauctionControllerEditauction extends JControllerForm
 		$address->city=$data['city'];
 		$address->gps_x=$data['gps_x'];
 		$address->gps_y=$data['gps_y'];
-		
-		$db->insertObject("#__gotauction_address", $address);
-		$address_id=$db->insertid();
+		$address_id="";
+		if ($isNew)
+		{
+			$db->insertObject("#__gotauction_address", $address);
+			$address_id=$db->insertid();
+		}
+		else
+		{
+			//get the existing address id from the database
+			$query->select("address")->from("#__gotauction_auction")->where("id='" . $auction_id . "'");
+			$db->setQuery($query);
+			$address_row=$db->loadObject();
+			$address_id=$address_row->address;
+			$address->id=$address_row->address;
+			$db->updateObject("#__gotauction_address", $address, "id");
+		}
 		
 		$auction=new stdClass();
+		
+		
 		$auction->title				= $data['title'];
 		$auction->auction_id		= $data['auction_id'];
 		$auction->auction_type		= $data['auction_type'];
@@ -46,8 +70,18 @@ class GotauctionControllerEditauction extends JControllerForm
 		$auction->terms				= $data['terms'];
 		$auction->address			= $address_id;
 		
-		$db->insertObject("#__gotauction_auction", $auction);
+		if ($isNew)
+		{
+			$db->insertObject("#__gotauction_auction", $auction);
+			$auction_id=$db->insertid();
+		}
+		else
+		{
+			//get the existing address id from the database
+			$auction->id=$auction_id;
+			$db->updateObject("#__gotauction_auction", $auction, "id");
+		}
 		
-		$this->setRedirect("index.php?option=com_gotauction&view=setting&layout=edit&id=1");	
+		$this->setRedirect("index.php?option=com_gotauction&view=auctions");	
 	}
 }

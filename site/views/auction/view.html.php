@@ -8,8 +8,8 @@ class GotauctionViewAuction extends JViewLegacy
 	protected $lots;
 	public function display($tpl=null)
 	{
-		$this->item = $this->get('Items')[0];
-		
+		$this->item = $this->get('Items');
+		$this->item=$this->item[0];
 		$this->state=$this->get('State'); //get the ordering
 		$this->lots=$this->getLots();
 		$app=JFactory::getApplication();
@@ -49,7 +49,7 @@ class GotauctionViewAuction extends JViewLegacy
 		$query=$db->getQuery(true);
 		$query->select($db->quoteName(array("id", "title", "lot_type", "quantity")));
 		$query->from($db->quoteName("#__gotauction_lot"));
-		$query->where($db->quote("auction_id") . "='" . $this->item->id . "'");
+		$query->where($db->quoteName("auction_id") . "='" . $this->item->id . "'");
 		$db->setQuery($query);
 		
 		$lots=$db->loadObjectList();
@@ -59,7 +59,7 @@ class GotauctionViewAuction extends JViewLegacy
 			$query=$db->getQuery(true);
 			$query->select($db->quoteName(array("id", "image")));
 			$query->from($db->quoteName("#__gotauction_images"));
-			$query->where($db->quote("lot_id") . "='" . $lot->id . "'");
+			$query->where($db->quoteName("lot_id") . "='" . $lot->id . "'");
 			$db->setQuery($query);
 			
 			$lot->images=$db->loadObjectList();
