@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+	<fieldset name="auctioneer_fields">
+		<field name="id" 			type="text" 				label="GLOBAL_FIELD_ID_LABEL" readonly="true" class="readonly" />
+		<field name="name" 			type="text"  				label="COM_GOTAUCTION_NAME"   />
+		<field name="company" 		type="text"  				label="COM_GOTAUCTION_COMPANY"   />
+		<field name="contact_no" 	type="text" 		 		label="COM_GOTAUCTION_CONTACT_NO"   />
+		<field name="email" 		type="email"  				label="COM_GOTAUCTION_EMAIL"   />
+		<field name="profile_image" type="media"		  		label="COM_GOTAUCTION_PROFILE_IMAGE"   />
+	</fieldset>
+</form>

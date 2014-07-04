@@ -40,6 +40,9 @@ class GotauctionModelAuctions extends JModelList
 		
 		$this->setState('filter.state', $published);
 		
+		$auctioneer_id=$app->input->get('auctioneer_id', '0', 'integer');
+		$this->setState('filter.auctioneer_id', $auctioneer_id);
+		
 		parent::populateState('a.id', 'asc');
 	}
 	
@@ -68,6 +71,12 @@ class GotauctionModelAuctions extends JModelList
 		$query->where("a.auction_category=c.id");
 		$query->where("a.auctioneer=d.id");
 		$query->where("a.address=e.id");
+		
+		if ($this->getState('filter.auctioneer_id')!=0)
+		{
+			$query->where("a.auctioneer=" . $this->getState('filter.auctioneer_id'));
+		}
+		
 		
 		/*$published=$this->getState('filter.state');
 		if (is_numeric($published))
