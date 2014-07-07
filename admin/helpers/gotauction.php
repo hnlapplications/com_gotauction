@@ -27,4 +27,16 @@ class GotauctionHelper
 		}
 		return $result;
 	}
+	
+	public static function getMenu()
+	{	
+		echo "
+			<ul class = 'componentMenu'>
+				<li><a href = '".JRoute::_('index.php?option=com_gotauction&view=auctions&layout=default') . "'>AUCTIONS</a></li>
+				<li><a href = '".JRoute::_('index.php?option=com_gotauction&view=auctioneers&layout=default') . "'>AUCTIONEERS</a></li>
+				<li><a href = '".JRoute::_('index.php?option=com_gotauction&view=setting&layout=edit') . "'>SETTINGS</a></li>
+				<li><a href = '".JRoute::_('index.php?option=com_gotauction&view=setting&layout=edit') . "'>REPORTS</a></li>
+			</ul>
+		";
+	}
 }

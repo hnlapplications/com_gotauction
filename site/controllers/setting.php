@@ -10,7 +10,7 @@ class GotauctionControllerSetting extends JControllerForm
 		parent::__construct();
 	}
 	
-	public function save()
+	public function save($key = NULL, $urlVar = NULL)
 	{
 		$app=JFactory::getApplication();
 		//get the form data

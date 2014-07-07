@@ -9,7 +9,7 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>lloyd@gotweb.co.za</authorEmail>
 	<authorUrl>www.hnlapp.co.za</authorUrl>
-	<version>1.0.1</version>
+	<version>1.0.3</version>
 	<description>COM_GOTAUCTION_XML_DESCRIPTION</description>
 	
 	<scriptfile>script.php</scriptfile>

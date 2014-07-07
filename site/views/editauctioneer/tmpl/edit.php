@@ -6,6 +6,18 @@ JHtml::_('script', 'system/core.js', false, true);
 
 JHtml::stylesheet(Juri::base() . 'media/jui/css/bootstrap.min.css');
 ?>
+
+<div>
+	<?php
+		$url = JUri::base() . 'media/com_gotauction/css/style.css';
+		$document = JFactory::getDocument();
+		$document->addStyleSheet($url);
+		require_once JPATH_COMPONENT_ADMINISTRATOR . '/helpers/gotauction.php';
+		GotauctionHelper::getMenu();
+	?>
+</div>
+
+
 <h1>Manage Auctioneer</h1>
 <form action="<?php echo JRoute::_('index.php?option=com_gotauction&view=editauctioneer&layout=edit&id='.(int)$this->item->id); ?>" method="POST" enctype="multipart/form-data" name="adminForm" id="adminForm" class=form-validate">
 	<div class="btn-toolbar">

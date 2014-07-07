@@ -30,6 +30,17 @@ JHtml::_('jquery.framework');
 	
 	
 </script>
+
+<div>
+	<?php
+		$url = JUri::base() . 'media/com_gotauction/css/style.css';
+		$document = JFactory::getDocument();
+		$document->addStyleSheet($url);
+		require_once JPATH_COMPONENT_ADMINISTRATOR . '/helpers/gotauction.php';
+		GotauctionHelper::getMenu();
+	?>
+</div>
+
 <h1>Manage Lot</h1>
 <form action="<?php echo JRoute::_('index.php?option=com_gotauction&view=editlot&layout=edit&id='.(int)$this->item->id); ?>" method="POST" enctype="multipart/form-data" name="adminForm" id="adminForm" class=form-validate">
 	<div class="btn-toolbar">

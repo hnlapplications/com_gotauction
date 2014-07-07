@@ -42,7 +42,7 @@ class GotauctionModelLot extends JModelList
 		
 		$query->select($this->getState(
 			'list.select',
-			'a.id, a.title, a.lot_type, a.quantity'
+			'a.id, a.title, a.description, a.lot_type, a.quantity'
 		));
 		
 		$query->from($db->quoteName("#__gotauction_lot").' AS a');

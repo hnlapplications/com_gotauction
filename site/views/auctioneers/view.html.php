@@ -1,6 +1,9 @@
 <?php
 defined ('_JEXEC') or die();
 JHtml::_('script', 'system/core.js', false, true);
+// import joomla's filesystem classes
+jimport('joomla.filesystem.folder');
+
 class GotauctionViewAuctioneers extends JViewLegacy
 {
 	protected $items;
@@ -10,7 +13,7 @@ class GotauctionViewAuctioneers extends JViewLegacy
 	public function display($tpl=null)
 	{
 		$this->items = $this->get('Items');
-		print_r($this->items);
+		//print_r($this->items);
 		$this->state=$this->get('State'); //get the ordering
 		
 		$app=JFactory::getApplication();

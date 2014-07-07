@@ -16,7 +16,7 @@ class GotauctionModelAuctions extends JModelList
 				'auction_id', 'a.auction_id',
 				'auction_type', 'a.auction_type',
 				'auctioneer', 'a.auctioneer',
-				'autction_category', 'a.autction_category',
+				'auction_category', 'a.auction_category',
 				'description', 'a.description',
 				'address', 'a.address',
 				'date', 'a.date',

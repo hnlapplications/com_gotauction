@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<metadata>
+	<layout title="com_gotauction_auctions_view_default_title" option="com_gotauction_auctions_view_default_option">
+		<message>
+			<![CDATA[com_gotauction_auctions_view_default_title]]>
+		</message>
+	</layout>
+</metadata>

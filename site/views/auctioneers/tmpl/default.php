@@ -5,7 +5,9 @@ ini_set('display_startup_errors',1);
 ini_set('display_errors',1);
 error_reporting(-1);
 
-
+	// import joomla's filesystem classes
+	//jimport('joomla.filesystem.folder');
+				
 JHtml::_('bootstrap.framework');
 JHtml::_('script', 'system/core.js', false, true);
 $document = JFactory::getDocument();
@@ -13,7 +15,7 @@ $document = JFactory::getDocument();
 $listOrder=$this->escape($this->state->get('list.ordering'));
 $listDirn=$this->escape($this->state->get('list.direction'));
 
-$sortFields=$this->getSortFields()
+$sortFields=$this->getSortFields();
 
 ?>
 <script type="text/javascript">
@@ -40,8 +42,18 @@ $sortFields=$this->getSortFields()
 
 </script>
 
+	<div>
+		<?php
+			//$urlImgs = JUri::base() . 'media/com_gotauction/css/style.css';
+			$urlCSS = JUri::base() . 'media/com_gotauction/css/style.css';
+			$document = JFactory::getDocument();
+			$document->addStyleSheet($urlCSS);
+			require_once JPATH_COMPONENT_ADMINISTRATOR . '/helpers/gotauction.php';
+			GotauctionHelper::getMenu();
+		?>
+	</div>
 
-	<h1>Auctions</h1>
+	<h1>Auctioneers</h1>
 	<?php
 		echo $this->addToolbar();
 	?>
@@ -119,15 +131,37 @@ $sortFields=$this->getSortFields()
 	
 	<div class="table auctioneer-table" id="auctioneerList">
 
+			<ul class = "auctioneerList">
 			<?php foreach($this->items as $item): ?>
-				<div class="grid_auctioneer">
-					img<br />
-					<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=editauctioneer&layout=edit&id=" . $item->id); ?>"><strong><?php echo $item->name; ?></strong><br /></a>
-					<?php echo print_r($item, true); ?><br />
-					<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auctions&layout=default&auctioneer_id=" . $item->id); ?>">View Auctions</a>
-				</div>
+				
+				<li class="grid_auctioneer">
+					<table width = "100%">
+						<tr>
+							<td width = "80%">
+								<ul class = "listDetails">
+									<li> Name: <a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auctioneer&layout=default&id=" . $item->id); ?>"><strong><?php echo $item->name; ?></strong></a> </li>
+									<li> Tel No: <strong><?php echo $item->contact_no; ?></strong> </li>
+									<li> Company: <strong><?php echo $item->company; ?></strong> </li>
+									<li> Email: <strong><?php echo $item->email; ?></strong> </li>
+									
+								</ul>
+							</td>
+							<td>
+								<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=editauctioneer&layout=edit&id=" . $item->id); ?>">
+									<img src = "<?php echo JUri::base() . "/" . $item->profile_image; ?>" class = "profileSmall" />
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auctions&layout=default&auctioneer_id=" . $item->id); ?>">View Auctions</a> </td>
+							<td><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=editauctioneer&layout=edit&id=" . $item->id); ?>">Edit Auctioneer</a> </td>
+						</tr>
+					</table>
+					
+					
+				</li>
 			<?php endforeach; ?>
-		
+			</ul>
 		
 		<?php echo $this->pagination->getListFooter(); ?>
 		

@@ -14,6 +14,15 @@
 	});
 </script>
 
+<div>
+	<?php
+		$url = JUri::base() . 'media/com_gotauction/css/style.css';
+		$document = JFactory::getDocument();
+		$document->addStyleSheet($url);
+		require_once JPATH_COMPONENT_ADMINISTRATOR . '/helpers/gotauction.php';
+		GotauctionHelper::getMenu();
+	?>
+</div>
 
 <h1>Gotauction Settings</h1>
 

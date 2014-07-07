@@ -47,7 +47,7 @@ class GotauctionViewAuction extends JViewLegacy
 	{
 		$db=JFactory::getDbo();
 		$query=$db->getQuery(true);
-		$query->select($db->quoteName(array("id", "title", "lot_type", "quantity")));
+		$query->select($db->quoteName(array("id", "title", "description", "lot_type", "quantity")));
 		$query->from($db->quoteName("#__gotauction_lot"));
 		$query->where($db->quoteName("auction_id") . "='" . $this->item->id . "'");
 		$db->setQuery($query);
