@@ -33,11 +33,10 @@ class GotauctionHelper
 		$user=JFactory::getUser();
 		echo "
 			<ul class = 'componentMenu'>
-				<li><a href = '".JRoute::_('index.php?option=com_gotauction&view=auctions&layout=default') . "'>AUCTIONS</a></li>
-				<li><a href = '".JRoute::_('index.php?option=com_gotauction&view=auctioneers&layout=default') . "'>AUCTIONEERS</a></li>
-				" . ($user->authorise('core.configure', 'cmo_gotauction')?"<li><a href = '".JRoute::_('index.php?option=com_gotauction&view=setting&layout=edit&id=1') . "'>SETTINGS</a></li>":"") . 
-				($user->authorise('core.configure', 'com_gotauction')?"<li><a href = '".JRoute::_('index.php?option=com_gotauction&view=setting&layout=edit') . "'>REPORTS</a></li>":"") . "
-			</ul>
+				<li><a href = '".JRoute::_('index.php?option=com_gotauction&view=auctions&layout=default') . "'>Auctions</a></li>
+				<li><a href = '".JRoute::_('index.php?option=com_gotauction&view=auctioneers&layout=default') . "'>Auctioneers</a></li>
+				" . ($user->authorise('core.configure', 'cmo_gotauction')?"<li><a href = '".JRoute::_('index.php?option=com_gotauction&view=setting&layout=edit&id=1') . "'>Settings</a></li>":"") . 
+			"</ul>
 		";
 	}
 }

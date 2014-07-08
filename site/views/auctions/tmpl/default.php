@@ -40,7 +40,7 @@ $sortFields=$this->getSortFields()
 
 </script>
 <div class = "gotAuctionContainer">
-	<div>
+	<div id = "componentMenu">
 		<?php
 			$url = JUri::base() . 'media/com_gotauction/css/style.css';
 			$document = JFactory::getDocument();
@@ -61,27 +61,29 @@ $sortFields=$this->getSortFields()
 		</div>
 	</div>
 	
-	<div id="j-main-contaner">
 	<form action='<?php echo JRoute::_('index.php?option=com_gotauction&view=auctions'); ?>' method="POST" id="adminForm" name="adminForm">
 		
 		<!--------------- ORDERING STUFFS ------------------------>
-		<table style="width:100%">
+		<div class = "ordering">
+		<table style="width:100%;">
 			<tr style="border-top:1px solid">
-				<td style="padding-top:5px;" colspan='2'>
+				<td style="padding-top: 15px;">
 					<strong>Search</strong>
 					<input type="text" name="filter_search" id="filter_search" placeholder="Search..." value="<?php echo $this->escape($this->state->get('filter.search'));?>" title="Search" />
 					<button class="button btn-primary btn-lg"  onclick="this.form.submit()">Search</button>
 					<button class="button btn-primary btn-lg"  onclick="jQuery('#filter_search').val(''); this.form.submit()">Clear Search</button> 
 				</td>
-				<td>
-					<div class="btn-group">
+				<td rowspan = "2" style="padding-top: 15px;">
+					
 						<strong>Sorting</strong>
+						<br />
 						<select name="sortTable" class="input-medium" id="sortTable" onchange="Joomla.orderTable()">
 							<option value="">
 								<?php echo JText::_('JGLOBAL_SORT_BY');?>
 							</option>
 							<?php echo JHtml::_('select.options', $sortFields, 'value', 'text', $listOrder); ?>
-						</select>			
+						</select>
+						<br />
 						<select name="directionTable" id="directionTable" class="input-medium" onchange="Joomla.orderTable();">
 							<option value="">
 								<?php echo JText::_('COM_GOTAUCTION_ORDERING');?>
@@ -93,7 +95,7 @@ $sortFields=$this->getSortFields()
 								<?php echo JText::_('JGLOBAL_ORDER_DESCENDING');?>
 							</option>
 						</select>
-					</div>
+					
 				</td>
 			</tr>
 			<tr>
@@ -109,19 +111,19 @@ $sortFields=$this->getSortFields()
 				</td>
 			</tr>
 		</table>
+		</div>
 		<!--------------- END ORDERING STUFFS -------------------->
 		
 		<input type = "hidden" name = "task" value = "" />
 		<input type = "hidden" name = "option" value = "com_gotauction" />
 		<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
-	<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
+		<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
 		
 	</form>
-	<div class="clearfix"></div>
 	
 	<!-- LIST OUTPUT-->
 	
-	<div class="table auction-table" id="auctionList">
+	<div class="table auctionList">
 
 			<ul class = "auctionList">
 				<?php foreach($this->items as $item): ?>
@@ -152,6 +154,22 @@ $sortFields=$this->getSortFields()
 									</table>
 								</td>
 								<td>
+									<div style = "width: 100%;">
+									<?php for($i = 0; $i < 6; $i++) : ?>
+										<div style = "width: 45%; float: left; padding: 5px;">
+										<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=editauctioneer&layout=edit&id=" . $item->id); ?>">
+											<img src = "<?php $rand = rand(0, $count); echo JUri::base() . "images/com_gotauction/lots/" . $images[$rand]; ?>" class = "small" />
+										</a>
+										</div>
+									<?php endfor; ?>
+									</div>
+								</td>
+							</tr>
+						</table>
+				
+						<table width = "100%">
+							<tr class = "trDetails">
+								<td>
 									<table class = "listDetails">
 										<tr>
 											<td>Category:</td><td><strong><?php echo $item->auction_category_title; ?></strong></td>
@@ -171,6 +189,10 @@ $sortFields=$this->getSortFields()
 										<tr>
 											<td>Viewing Time:</td><td><strong><?php echo $item->viewing_time; ?></strong></td>
 										</tr>
+									</table>
+								</td>
+								<td>
+									<table class = "listDetails">
 										<tr>
 											<td>Address:</td><td><strong><?php echo $item->street_number . " ". $item->street_name . ", ". 
 																					$item->suburb . "<br /> ". $item->city . ", ". 
@@ -186,29 +208,20 @@ $sortFields=$this->getSortFields()
 											<td>Auctioneer:</td><td><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auctioneer&layout=default&id=" . $item->auctioneer); ?>"><strong><?php echo $item->auctioneer_name; ?></a></td>
 										</tr>
 									</table>
-									
 								</td>
 							</tr>
-						</table>
-						<table width = "100%">
-							<tr>
-								<td width = "60%">
-									<?php for($i = 0; $i < 4; $i++) : ?>
-										<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=editauctioneer&layout=edit&id=" . $item->id); ?>">
-											<img src = "<?php $rand = rand(0, $count); echo JUri::base() . "images/com_gotauction/lots/" . $images[$rand]; ?>" class = "small" />
-										</a>
-									<?php endfor; ?>
+							<tr class = "contentLinks">
+								<td>
+									<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auction&layout=default&id=" . $item->id); ?>">View Auction</a>
 								</td>
 								<td>
-									<ul class = "contentLinks">
-										<?php if (JFactory::getUser()->authorise('core.edit', 'com_gotauction')): ?>
-										<li><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=editauction&layout=edit&id=" . $item->id); ?>">Edit Auction</a> </li>
-										<?php endif; ?>
-										<li><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auction&layout=default&id=" . $item->id); ?>">View Auction</a> </li>
-									</ul>
+									<?php if (JFactory::getUser()->authorise('core.edit', 'com_gotauction')): ?>
+										<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=editauction&layout=edit&id=" . $item->id); ?>">Edit Auction</a>
+									<?php endif; ?>
 								</td>
 							</tr>
 						</table>
+					
 					</li>
 				<?php endforeach; ?>
 			</ul>
@@ -222,6 +235,5 @@ $sortFields=$this->getSortFields()
 	</div>
 	
 	<!-- END LIST OUTPUT -->
-	</div> <!-- end j-main-container -->
 </div> <!-- gotAuctionContainer -->
 </form>

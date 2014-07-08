@@ -25,16 +25,16 @@
 .grid_auctioneer
 {
 	margin: 0 auto;
-	width: 45%;
-	height: 150px;
+	width: 40%;
+	min-height: 175px;
 	float: left;
 	background: #ddd;
 	border: 1px solid #6d6b6b;
 	box-shadow: 0px 0px 10px #888888;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 15px;
+	margin-right: 15px;
 	padding: 15px;
 
 }
@@ -43,7 +43,7 @@
 {
 	margin: 0 auto;
 	width: 100%;
-	height: 390px;
+	min-height: 400px;
 	float: left;
 	background: #ddd;
 	border: 1px solid #6d6b6b;
@@ -60,7 +60,6 @@
 {
 	margin: 0 auto;
 	width: 95%;
-	
 	float: left;
 	background: #ddd;
 	border: 1px solid #6d6b6b;
@@ -89,51 +88,70 @@
 	padding: 15px;
 }
 
-div.grid_lots
+
+.grid_lot
 {
-	float: left;
-	width: 100%;
-}
-li.grid_lot
-{
-	width: 28%;
-	height: 250px;
+	
+	width: 24%;
+	min-height: 250px;
 	float: left;
 	background: #ddd;
 	border: 1px solid #6d6b6b;
 	box-shadow: 0px 0px 10px #888888;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 15px;
+	margin-right: 15px;
 	padding: 15px;
 }
 
-div.auctioneerList
+.grid_lot table td
 {
-	width: 100%;
-	margin: 0 auto;
+	text-align: center;
 }
-ul.auctioneerList
+
+div.auctionList
 {
-	list-style-type: none;
-	width: 100%;
-	margin: 0 auto;
+	float: left;
 }
 
 ul.auctionList
 {
+	margin: 0 auto;
 	list-style-type: none;
-	width: 90%;
-	
+	width: 95%;
+	margin-left: 0px;
+	float: left;
+}
+
+div.auctioneerList
+{
+	float: left;
+}
+ul.auctioneerList
+{
+	margin: 0 auto;
+	list-style-type: none;
+	width: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
+	float: left;
+}
+
+
+div.lotList
+{
+	float: left;
 }
 
 ul.lotList
 {
+	margin: 0 auto;
 	list-style-type: none;
 	width: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
 	float: left;
-	margin: 0 auto;
 }
 
 ul.listDetails
@@ -146,6 +164,12 @@ table.listDetails td
 {
 	padding: 0px;
 	padding-left: 4px;
+}
+
+tr.trDetails
+{
+	background: #fff;
+	box-shadow: 0px 0px 1px #888888;
 }
 
 .contentLinks
@@ -169,6 +193,12 @@ img.small
 	height: 60px;
 }
 
+img.smallLot
+{
+	width: 150px;
+	height: 100px;
+}
+
 img.medium
 {
 	width: 190px;
@@ -177,7 +207,7 @@ img.medium
 
 img.big
 {
-	width: 370px;
+	width: 320px;
 	height: 200px;
 	box-shadow: 0 10px 10px -2px black;
 }
@@ -245,7 +275,8 @@ ul.componentMenu a:hover
 
 .subMenu
 {
-	width: 50%;
+	width: 90%;
+	margin-bottom: 10px;
 }
 .subMenu a
 {
@@ -253,5 +284,10 @@ ul.componentMenu a:hover
 	font-weight: bold;
 	display: inline;
 	margin-right: 20px;
+}
+
+.ordering
+{
+	
 }
 
