@@ -29,7 +29,11 @@ class GotauctionViewLot extends JViewLegacy
 	
 	public function addToolbar()
 	{
-		$html="<a class='button' href='" . JRoute::_("index.php?option=com_gotauction&view=editlot&layout=edit&id=" . $this->item->id) . "'>Edit Lot</a>";
+		$html="";
+		if (JFactory::getUser()->authorise('core.edit', 'com_gotauction'))
+		{
+			$html="<a class='button' href='" . JRoute::_("index.php?option=com_gotauction&view=editlot&layout=edit&id=" . $this->item->id) . "'>Edit Lot</a>";
+		}
 		//~ check usergroups, and render a toolbar if the user is allowed to do stuff
 		return $html;
 	}

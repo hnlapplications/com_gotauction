@@ -30,7 +30,12 @@ class GotauctionViewAuctions extends JViewLegacy
 	
 	public function addToolbar()
 	{
-		$html="<a class='button' href='index.php?option=com_gotauction&view=editauction&layout=edit'>New Auction</a>";
+		$user=JFactory::getUser();
+		$html="";
+		if ($user->authorise('core.create', 'com_gotauction'))
+		{
+			$html="<a class='button' href='index.php?option=com_gotauction&view=editauction&layout=edit'>New Auction</a>";
+		}
 		//~ check usergroups, and render a toolbar if the user is allowed to do stuff
 		return $html;
 	}

@@ -16,7 +16,7 @@ $document = JFactory::getDocument();
 //~ $sortFields=$this->getSortFields()
 
 ?>
-
+<div class = "gotAuctionContainer">
 	<div>
 		<?php
 			$url = JUri::base() . 'media/com_gotauction/css/style.css';
@@ -26,11 +26,17 @@ $document = JFactory::getDocument();
 			GotauctionHelper::getMenu();
 		?>
 	</div>
-
-	<h1>Lot</h1>
-	<?php
-		echo $this->addToolbar();
-	?>
+	
+	<div class = "componentContentHeader">
+		<div class = "pageHeading">
+			<h1>Lot</h1>
+		</div>
+		<div class = "subMenu">
+			<?php
+				echo $this->addToolbar();
+			?>
+		</div>
+	</div>
 	
 	<div class="clearfix"></div>
 	
@@ -39,26 +45,32 @@ $document = JFactory::getDocument();
 	<div class="table auction-table" id="auctionList">
 			<div class="grid_auction3">
 				<table width = "100%">
-					<tr>
-						<td colspan = "2">Lot: <strong><?php echo $this->item->title; ?></strong></td>
-					</tr>
-					<tr>
-						<td colspan = "2">Lot Type: <strong><?php echo $this->item->lot_type; ?></strong></td>
-					</tr>
-					<tr>
-						<td colspan = "2">Quantity: <strong><?php echo $this->item->quantity; ?></strong></td>
-					</tr>
-					<tr>
-						<td colspan = "2">Description: <strong><?php echo $this->item->description; ?></strong></td>
-					</tr>
-					<tr>
-						<td>
-							<?php foreach($this->images as $image): ?>
-							<img src = "<?php echo JUri::base() . "images/com_gotauction/lots/" . $image->image; ?>" class = "profileSmall" />
-							<?php endforeach; ?>
-							
-						</td>
-					</tr>
+				<tr>
+					<td>
+						<table>
+							<tr>
+								<td colspan = "2">Lot: <strong><?php echo $this->item->title; ?></strong></td>
+							</tr>
+							<tr>
+								<td colspan = "2">Lot Type: <strong><?php echo $this->item->lot_type; ?></strong></td>
+							</tr>
+							<tr>
+								<td colspan = "2">Quantity: <strong><?php echo $this->item->quantity; ?></strong></td>
+							</tr>
+							<tr>
+								<td colspan = "2">Description: <strong><?php echo $this->item->description; ?></strong></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<?php foreach($this->images as $image): ?>
+						<img src = "<?php echo JUri::base() . "images/com_gotauction/lots/" . $image->image; ?>" class = "medium" />
+						<?php endforeach; ?>
+						
+					</td>
+				</tr>
 				</table>
 			</div>
 		
@@ -69,4 +81,5 @@ $document = JFactory::getDocument();
 	</div>
 	
 	<!-- END LIST OUTPUT -->
+</div> <!-- gotAuctionContainer -->
 </form>

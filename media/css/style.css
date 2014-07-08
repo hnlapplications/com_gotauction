@@ -8,12 +8,29 @@
     width: calc(87% / 3);
 }*/
 
+.gotAuctionContainer
+{
+	width: 95%;
+	margin: 0 auto;
+	float: left;
+	background: #f3f3f3;
+	padding: 15px;
+	border: 1px solid #6d6b6b;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px #888888;
+	/*-webkit-box-shadow: 0px 0px 10px #888888;
+	-moz-box-shadow: 0px 0px 10px #888888;*/
+}
+
 .grid_auctioneer
 {
-	width: 300px;
+	margin: 0 auto;
+	width: 45%;
 	height: 150px;
 	float: left;
 	background: #ddd;
+	border: 1px solid #6d6b6b;
+	box-shadow: 0px 0px 10px #888888;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	margin-left: 5px;
@@ -24,37 +41,30 @@
 
 .grid_auction
 {
-	width: 650px;
-	height: 350px;
+	margin: 0 auto;
+	width: 100%;
+	height: 390px;
 	float: left;
 	background: #ddd;
+	border: 1px solid #6d6b6b;
+	box-shadow: 0px 0px 10px #888888;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	margin-left: 5px;
 	margin-right: 5px;
 	padding: 15px;
 
-}
-
-.grid_lot
-{
-	width: 300px;
-	height: 250px;
-	float: left;
-	background: #ddd;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-left: 5px;
-	margin-right: 5px;
-	padding: 15px;
 }
 
 .grid_auction2
 {
-	width: 650px;
-	height: 200px;
+	margin: 0 auto;
+	width: 95%;
+	
 	float: left;
 	background: #ddd;
+	border: 1px solid #6d6b6b;
+	box-shadow: 0px 0px 10px #888888;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	margin-left: 5px;
@@ -65,28 +75,65 @@
 
 .grid_auction3
 {
-	width: 650px;
-	height: 350px;
+	margin: 0 auto;
+	width: 95%;
+	
 	float: left;
 	background: #ddd;
+	border: 1px solid #6d6b6b;
+	box-shadow: 0px 0px 10px #888888;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	margin-left: 5px;
 	margin-right: 5px;
 	padding: 15px;
-
 }
 
+div.grid_lots
+{
+	float: left;
+	width: 100%;
+}
+li.grid_lot
+{
+	width: 28%;
+	height: 250px;
+	float: left;
+	background: #ddd;
+	border: 1px solid #6d6b6b;
+	box-shadow: 0px 0px 10px #888888;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 15px;
+}
+
+div.auctioneerList
+{
+	width: 100%;
+	margin: 0 auto;
+}
 ul.auctioneerList
 {
 	list-style-type: none;
-	width: 800px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+ul.auctionList
+{
+	list-style-type: none;
+	width: 90%;
+	
 }
 
 ul.lotList
 {
 	list-style-type: none;
-	width: 800px;
+	width: 100%;
+	float: left;
+	margin: 0 auto;
 }
 
 ul.listDetails
@@ -94,6 +141,27 @@ ul.listDetails
 	list-style-type: none;
 	margin-left: 0px;
 }
+
+table.listDetails td
+{
+	padding: 0px;
+	padding-left: 4px;
+}
+
+.contentLinks
+{
+	list-style-type: none;
+	margin-left: 0px;
+}
+
+.contentLinks a
+{
+	font-size: 16px;
+	font-weight: bold;
+	display: inline;
+	margin-right: 20px;
+}
+
 
 img.small
 {
@@ -109,8 +177,9 @@ img.medium
 
 img.big
 {
-	width: 285px;
-	height: 187px;
+	width: 370px;
+	height: 200px;
+	box-shadow: 0 10px 10px -2px black;
 }
 
 img.large
@@ -127,6 +196,7 @@ img.profileSmall
 {
 	width: 100px;
 	height: 100px;
+	box-shadow: 0px 0px 10px #888888;
 }
 
 #componentMenu
@@ -138,7 +208,9 @@ img.profileSmall
 
 ul.componentMenu
 {
-	
+	border-bottom:1px solid;
+	margin-bottom: 25px;
+	margin-left: 0px;
 }
 
 ul.componentMenu li
@@ -157,5 +229,29 @@ ul.componentMenu a
 
 ul.componentMenu a:hover
 {
-	color: #a6ce39;
+	color: #282828;
 }
+
+.componentContentHeader
+{
+	
+}
+
+.pageHeading
+{
+	margin-top: 5px;
+	width: 50%;
+}
+
+.subMenu
+{
+	width: 50%;
+}
+.subMenu a
+{
+	font-size: 16px;
+	font-weight: bold;
+	display: inline;
+	margin-right: 20px;
+}
+

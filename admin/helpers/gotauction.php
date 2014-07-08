@@ -30,12 +30,13 @@ class GotauctionHelper
 	
 	public static function getMenu()
 	{	
+		$user=JFactory::getUser();
 		echo "
 			<ul class = 'componentMenu'>
 				<li><a href = '".JRoute::_('index.php?option=com_gotauction&view=auctions&layout=default') . "'>AUCTIONS</a></li>
 				<li><a href = '".JRoute::_('index.php?option=com_gotauction&view=auctioneers&layout=default') . "'>AUCTIONEERS</a></li>
-				<li><a href = '".JRoute::_('index.php?option=com_gotauction&view=setting&layout=edit') . "'>SETTINGS</a></li>
-				<li><a href = '".JRoute::_('index.php?option=com_gotauction&view=setting&layout=edit') . "'>REPORTS</a></li>
+				" . ($user->authorise('core.configure', 'cmo_gotauction')?"<li><a href = '".JRoute::_('index.php?option=com_gotauction&view=setting&layout=edit&id=1') . "'>SETTINGS</a></li>":"") . 
+				($user->authorise('core.configure', 'com_gotauction')?"<li><a href = '".JRoute::_('index.php?option=com_gotauction&view=setting&layout=edit') . "'>REPORTS</a></li>":"") . "
 			</ul>
 		";
 	}

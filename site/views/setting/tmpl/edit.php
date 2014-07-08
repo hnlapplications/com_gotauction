@@ -136,7 +136,7 @@ JHtml::_('jquery.framework');
 	}
 	
 </script>
-
+<div class = "gotAuctionContainer">
 
 <div>
 	<?php
@@ -237,7 +237,7 @@ JHtml::_('jquery.framework');
 			</fieldset>
 		</div>
 	</div>
-
+</div> <!-- gotAuctionContainer -->
 </form>
 
 <div class="row-fluid">
@@ -256,7 +256,12 @@ JHtml::_('jquery.framework');
 						<?php
 							foreach($this->auction_types as $auction_type):
 						?>
-							<tr><td><?php echo $auction_type->title; ?></td><td><img src="media/com_gotauction/images/edit.png" onclick="manageType('auctiontype', false, <?php echo $auction_type->id; ?>); "/><img src="media/com_gotauction/images/delete.png" onclick="deleteType('auctiontype', <?php echo $auction_type->id; ?>); "/></td></tr>
+							<tr><td><?php echo $auction_type->title; ?></td>
+								<td style = "padding: 5px;">
+									<button class="btn btn-primary  pull-right" onclick="deleteType('auctiontype', <?php echo $auction_type->id; ?>); ">Delete</button>
+									<button class="btn btn-primary  pull-right" onclick="manageType('auctiontype', false, <?php echo $auction_type->id; ?>); ">Edit</button>
+								</td>
+							</tr>
 						<?php
 							endforeach; 
 						?>
@@ -281,7 +286,12 @@ JHtml::_('jquery.framework');
 						<?php
 							foreach($this->auction_categories as $auction_category):
 						?>
-							<tr><td><?php echo $auction_category->title; ?></td><td><img src="media/com_gotauction/images/edit.png" onclick="manageType('auctioncategory', false, <?php echo $auction_category->id; ?>); "/><img src="media/com_gotauction/images/delete.png" onclick="deleteType('auctioncategory', <?php echo $auction_category->id; ?>); "/></td></tr>
+							<tr><td><?php echo $auction_category->title; ?></td>
+								<td style = "padding: 5px;">
+									<button class="btn btn-primary  pull-right" onclick="deleteType('auctioncategory', <?php echo $auction_category->id; ?>); ">Delete</button>
+									<button class="btn btn-primary  pull-right" onclick="manageType('auctioncategory', false, <?php echo $auction_category->id; ?>); ">Edit</button>
+								</td>
+							</tr>
 						<?php
 							endforeach; 
 						?>
@@ -306,7 +316,13 @@ JHtml::_('jquery.framework');
 						<?php
 							foreach($this->lot_types as $lot_type):
 						?>
-							<tr><td><?php echo $lot_type->title; ?></td><td><img src="media/com_gotauction/images/edit.png" onclick="manageType('lottype', false, <?php echo $lot_type->id; ?>); "/><img src="media/com_gotauction/images/delete.png" onclick="deleteType('lottype', <?php echo $lot_type->id; ?>); "/></td></tr>
+							<tr>
+								<td><?php echo $lot_type->title; ?></td>
+								<td style = "padding: 5px;">
+									<button class="btn btn-primary  pull-right" onclick="deleteType('lottype', <?php echo $lot_type->id; ?>); ">Delete</button>
+									<button class="btn btn-primary  pull-right" onclick="manageType('lottype', false, <?php echo $lot_type->id; ?>); ">Edit</button>
+								</td>
+							</tr>
 						<?php
 							endforeach; 
 						?>

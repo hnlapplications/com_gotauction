@@ -16,7 +16,7 @@ $document = JFactory::getDocument();
 //~ $sortFields=$this->getSortFields()
 
 ?>
-
+<div class = "gotAuctionContainer">
 	<div>
 		<?php
 			$url = JUri::base() . 'media/com_gotauction/css/style.css';
@@ -66,4 +66,5 @@ $document = JFactory::getDocument();
 	</div>
 	
 	<!-- END LIST OUTPUT -->
+</div> <!-- gotAuctionContainer -->
 </form>

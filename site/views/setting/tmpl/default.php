@@ -13,7 +13,7 @@
 		
 	});
 </script>
-
+<div class = "gotAuctionContainer">
 <div>
 	<?php
 		$url = JUri::base() . 'media/com_gotauction/css/style.css';
@@ -71,4 +71,5 @@
 		</div>
 		<input type="submit" value="Save Settings" />
 	</form>
+</div> <!-- gotAuctionContainer -->
 </div>

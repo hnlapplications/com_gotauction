@@ -30,7 +30,7 @@ JHtml::_('jquery.framework');
 	
 	
 </script>
-
+<div class = "gotAuctionContainer">
 <div>
 	<?php
 		$url = JUri::base() . 'media/com_gotauction/css/style.css';
@@ -111,7 +111,7 @@ JHtml::_('jquery.framework');
 			</fieldset>
 		</div>
 	</div>
-
+</div> <!-- gotAuctionContainer -->
 </form>
 
 

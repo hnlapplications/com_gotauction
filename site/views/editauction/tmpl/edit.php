@@ -6,7 +6,7 @@ JHtml::_('script', 'system/core.js', false, true);
 
 JHtml::stylesheet(Juri::base() . 'media/jui/css/bootstrap.min.css');
 ?>
-
+<div class = "gotAuctionContainer">
 <div>
 	<?php
 		$url = JUri::base() . 'media/com_gotauction/css/style.css';
@@ -77,7 +77,7 @@ JHtml::stylesheet(Juri::base() . 'media/jui/css/bootstrap.min.css');
 			</fieldset>
 		</div>
 	</div>
-
+</div> <!-- gotAuctionContainer -->
 </form>
 
 

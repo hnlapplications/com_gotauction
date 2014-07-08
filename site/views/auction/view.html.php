@@ -29,8 +29,19 @@ class GotauctionViewAuction extends JViewLegacy
 	
 	public function addToolbar()
 	{
-		$html="<a class='button' href='" . JRoute::_("index.php?option=com_gotauction&view=editauction&layout=edit&id=" . $this->item->id) . "'>Edit Auction</a>";
-		$html.="<a class='button' href='" . JRoute::_("index.php?option=com_gotauction&view=editlot&layout=edit&auction=" . $this->item->id) . "'>Add Lot</a>";
+		$html="";
+		
+		if (JFactory::getUser()->authorise('core.edit', 'com_gotauction'))
+		{
+			$html.="<a class='button' href='" . JRoute::_("index.php?option=com_gotauction&view=editauction&layout=edit&id=" . $this->item->id) . "'>Edit Auction</a>";
+		}
+		
+		if (JFactory::getUser()->authorise('core.create', 'com_gotauction'))
+		{
+			$html.="<a class='button' href='" . JRoute::_("index.php?option=com_gotauction&view=editlot&layout=edit&auction=" . $this->item->id) . "'>Add Lot</a>";
+		}
+		
+		
 		//~ check usergroups, and render a toolbar if the user is allowed to do stuff
 		return $html;
 	}

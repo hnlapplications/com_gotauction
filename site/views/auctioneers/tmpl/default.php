@@ -17,6 +17,8 @@ $listDirn=$this->escape($this->state->get('list.direction'));
 
 $sortFields=$this->getSortFields();
 
+$canEdit=JFactory::getUser()->authorise('core.edit', 'com_gotauction');
+
 ?>
 <script type="text/javascript">
 	/************ Joomla! functions **************************/
@@ -41,7 +43,7 @@ $sortFields=$this->getSortFields();
 	
 
 </script>
-
+<div class = "gotAuctionContainer">
 	<div>
 		<?php
 			//$urlImgs = JUri::base() . 'media/com_gotauction/css/style.css';
@@ -53,70 +55,65 @@ $sortFields=$this->getSortFields();
 		?>
 	</div>
 
-	<h1>Auctioneers</h1>
-	<?php
-		echo $this->addToolbar();
-	?>
+	<div class = "componentContentHeader">
+		<div class = "pageHeading">
+			<h1>Auctioneers</h1>
+		</div>
+		<div class = "subMenu">
+			<?php
+				echo $this->addToolbar();
+			?>
+		</div>
+	</div>
+	
 	<div id="j-main-contaner">
 	<form action='<?php echo JRoute::_('index.php?option=com_gotauction&view=auctioneers'); ?>' method="POST" id="adminForm" name="adminForm">
 		
-		
-		
-		
+		<!--------------- ORDERING STUFFS ------------------------>
 		<table style="width:100%">
 			<tr style="border-top:1px solid">
-				<td style="padding-top:5px; text-align:center;" colspan='2'>
-					<div style='width:50%; margin-left:auto; margin-right:auto;'>
-						<strong>Search</strong>
-						<input type="text" name="filter_search" id="filter_search" placeholder="Search..." value="<?php echo $this->escape($this->state->get('filter.search'));?>" title="Search" />
-						<button class="button btn-primary btn-lg" style="float:right; width:auto;" onclick="this.form.submit()">Search</button>
-						<button class="button btn-primary btn-lg" style="float:right;  width:auto;" onclick="jQuery('#filter_search').val(''); this.form.submit()">Clear Search</button> 
+				<td style="padding-top:5px;" colspan='2'>
+					<strong>Search</strong>
+					<input type="text" name="filter_search" id="filter_search" placeholder="Search..." value="<?php echo $this->escape($this->state->get('filter.search'));?>" title="Search" />
+					<button class="button btn-primary btn-lg"  onclick="this.form.submit()">Search</button>
+					<button class="button btn-primary btn-lg"  onclick="jQuery('#filter_search').val(''); this.form.submit()">Clear Search</button> 
+				</td>
+				<td>
+					<div class="btn-group">
+						<strong>Sorting</strong>
+						<select name="sortTable" class="input-medium" id="sortTable" onchange="Joomla.orderTable()">
+							<option value="">
+								<?php echo JText::_('JGLOBAL_SORT_BY');?>
+							</option>
+							<?php echo JHtml::_('select.options', $sortFields, 'value', 'text', $listOrder); ?>
+						</select>			
+						<select name="directionTable" id="directionTable" class="input-medium" onchange="Joomla.orderTable();">
+							<option value="">
+								<?php echo JText::_('COM_GOTAUCTION_ORDERING');?>
+							</option>
+							<option value="asc" <?php if ($listDirn=='asc') echo 'selected="selected"';?>>
+								<?php echo JText::_('JGLOBAL_ORDER_ASCENDING');?>
+							</option>
+							<option value="desc" <?php if ($listDirn=='desc') echo 'selected="selected"';?>>
+								<?php echo JText::_('JGLOBAL_ORDER_DESCENDING');?>
+							</option>
+						</select>
 					</div>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<!--------------- ORDERING STUFFS ------------------------>
-					<div class="gw_ordering" style="text-align:center;">
+					<div class="btn-group">
+						<!-- Pagination -->
+						<label for="limit" class="">
+							<?php echo JText::_('JFIELD_PLG_SEARCH_SEARCHLIMIT_DESC') . " " . $this->pagination->getLimitBox();; ?>
+						</label>
 						
-						<div class="btn-group">
-							<strong>Sorting</strong>
-							<select name="sortTable" class="input-medium" id="sortTable" onchange="Joomla.orderTable()">
-								<option value="">
-									<?php echo JText::_('JGLOBAL_SORT_BY');?>
-								</option>
-								<?php echo JHtml::_('select.options', $sortFields, 'value', 'text', $listOrder); ?>
-							</select>			
-							<select name="directionTable" id="directionTable" class="input-medium" onchange="Joomla.orderTable();">
-								<option value="">
-									<?php echo JText::_('COM_GOTAUCTION_ORDERING');?>
-								</option>
-								<option value="asc" <?php if ($listDirn=='asc') echo 'selected="selected"';?>>
-									<?php echo JText::_('JGLOBAL_ORDER_ASCENDING');?>
-								</option>
-								<option value="desc" <?php if ($listDirn=='desc') echo 'selected="selected"';?>>
-									<?php echo JText::_('JGLOBAL_ORDER_DESCENDING');?>
-								</option>
-							</select>
-							<!-- Pagination -->
-							<label for="limit" class="">
-								<?php echo JText::_('JFIELD_PLG_SEARCH_SEARCHLIMIT_DESC'); ?>
-							</label>
-							<?php echo $this->pagination->getLimitBox(); ?>
-						<!-- end pagination -->
-						</div>
-						
+					<!-- end pagination -->
 					</div>
-					
 				</td>
 			</tr>
 		</table>
-		
-		
-		
-		
-		
-		
 		<!--------------- END ORDERING STUFFS -------------------->
 		
 		<input type = "hidden" name = "task" value = "" />
@@ -137,7 +134,7 @@ $sortFields=$this->getSortFields();
 				<li class="grid_auctioneer">
 					<table width = "100%">
 						<tr>
-							<td width = "80%">
+							<td width = "70%">
 								<ul class = "listDetails">
 									<li> Name: <a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auctioneer&layout=default&id=" . $item->id); ?>"><strong><?php echo $item->name; ?></strong></a> </li>
 									<li> Tel No: <strong><?php echo $item->contact_no; ?></strong> </li>
@@ -147,14 +144,18 @@ $sortFields=$this->getSortFields();
 								</ul>
 							</td>
 							<td>
+								<?php if ($canEdit) :?>
 								<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=editauctioneer&layout=edit&id=" . $item->id); ?>">
+								<?php endif; ?>
 									<img src = "<?php echo JUri::base() . "/" . $item->profile_image; ?>" class = "profileSmall" />
+								<?php if ($canEdit): ?>
 								</a>
+								<?php endif; ?>
 							</td>
 						</tr>
-						<tr>
+						<tr class = "contentLinks">
 							<td><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auctions&layout=default&auctioneer_id=" . $item->id); ?>">View Auctions</a> </td>
-							<td><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=editauctioneer&layout=edit&id=" . $item->id); ?>">Edit Auctioneer</a> </td>
+							<?php if ($canEdit): ?> <td><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=editauctioneer&layout=edit&id=" . $item->id); ?>">Edit</a> </td> <?php endif; ?>
 						</tr>
 					</table>
 					
@@ -173,4 +174,5 @@ $sortFields=$this->getSortFields();
 	
 	<!-- END LIST OUTPUT -->
 	</div> <!-- end j-main-container -->
+</div> <!-- gotAuctionContainer -->
 </form>

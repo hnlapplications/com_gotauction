@@ -19,6 +19,7 @@ class GotauctionControllerEditlot extends JControllerForm
 	
 	public function save()
 	{
+		$lot_id=null;
 		$app=JFactory::getApplication();
 		$input=$app->input;
 		//get the form data
@@ -38,14 +39,16 @@ class GotauctionControllerEditlot extends JControllerForm
 		if ($lot->id!=null&&$lot->id!="")
 		{
 			$db->updateObject("#__gotauction_lot", $lot, 'id');
+			$lot_id=$lot->id;
 		}
 		else
 		{
 			$db->insertObject("#__gotauction_lot", $lot);
+			//now that we have inserted the lot, get the lot id
+			$lot_id=$db->insertid();
 		}
 		
-		//now that we have inserted the lot, get the lot id
-		$lot_id=$db->insertid();
+		
 		
 		//upload images
 		$path=JPATH_BASE . DS . "images" . DS .  "com_gotauction" . DS . "lots";

@@ -16,7 +16,7 @@ $listDirn=$this->escape($this->state->get('list.direction'));
 $sortFields=$this->getSortFields()
 
 ?>
-
+<div class = "gotAuctionContainer">
 	<div>
 		<?php
 			$url = JUri::base() . 'media/com_gotauction/css/style.css';
@@ -27,10 +27,16 @@ $sortFields=$this->getSortFields()
 		?>
 	</div>
 
-	<h1>Auction</h1>
-	<?php
-		echo $this->addToolbar();
-	?>
+	<div class = "componentContentHeader">
+		<div class = "pageHeading">
+			<h1>Auction</h1>
+		</div>
+		<div class = "subMenu">
+			<?php
+				echo $this->addToolbar();
+			?>
+		</div>
+	</div>
 	
 	<div class="clearfix"></div>
 	
@@ -41,26 +47,51 @@ $sortFields=$this->getSortFields()
 				<div class="grid_auction2">
 					<table width = "100%">
 						<tr>
-							<td width = "50%"><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auction&layout=default&id=" . $this->item->id); ?>"><strong><?php echo $this->item->title; ?></strong><br /></a></td>
+							<td width = "50%"><h2><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auction&layout=default&id=" . $this->item->id); ?>"><strong><?php echo $this->item->title; ?></strong><br /></a></h2></td>
+							<td width = "50%"><h3>Auction ID: <strong><?php echo "#_" . $this->item->auction_id; ?></strong></h3></td>
 						</tr>
 						<tr>
 							<td>
-								<ul class = "listDetails">
-									<li> Category: <strong><?php echo $this->item->auction_category; ?></strong> </li>
-									<li> Type: <strong><?php echo $this->item->auction_type; ?></strong> </li>
-									<li> Date: <strong><?php echo $this->item->date; ?></strong> </li>
-									<li> Time: <strong><?php echo $this->item->time; ?></strong> </li>
-									<li> Viewing Date: <strong><?php echo $this->item->viewing_date; ?></strong> </li>
-									<li> Viewing Time: <strong><?php echo $this->item->viewing_time; ?></strong> </li>
-								</ul>
+								<table class = "listDetails">
+									<tr>
+										<td>Category:</td><td><strong><?php echo $this->item->auction_category_title; ?></strong></td>
+									</tr>
+									<tr>
+										<td>Type:</td><td><strong><?php echo $this->item->auction_type_title; ?></strong></td>
+									</tr>
+									<tr>
+										<td>Date:</td><td><strong><?php echo $this->item->date; ?></strong></td>
+									</tr>
+									<tr>
+										<td>Time:</td><td><strong><?php echo $this->item->time; ?></strong></td>
+									</tr>
+									<tr>
+										<td>Viewing Date:</td><td><strong><?php echo $this->item->viewing_date; ?></strong></td>
+									</tr>
+									<tr>
+										<td>Viewing Time:</td><td><strong><?php echo $this->item->viewing_time; ?></strong></td>
+									</tr>
+								</table>
+							
 							</td>
 							<td>
-								<ul class = "listDetails">
-									<li> Address: <strong><?php echo $this->item->address; ?></strong> </li>
-									<li> GPS Coordinates: <strong><?php echo $this->item->address; ?></strong> </li>
-									<li> Description: <strong><?php echo $this->item->description; ?></strong> </li>
-									<li> Auction ID: <strong><?php echo "#_" . $this->item->auction_id; ?></strong> </li>
-								</ul>
+								<table class = "listDetails">
+									<tr>
+										<td>Address:</td><td><strong><?php echo $this->item->street_number . " ". $this->item->street_name . ", ". 
+																				$this->item->suburb . "<br /> ". $this->item->city . ", ". 
+																				$this->item->post_code ?></strong></td>
+									</tr>
+									<tr>
+										<td>GPS:</td><td><strong><?php echo $this->item->gps_x . ", ". $this->item->gps_y; ?></strong></td>
+									</tr>
+									<tr>
+										<td>Description:</td><td><strong><?php echo $this->item->description; ?></strong></td>
+									</tr>
+									<tr>
+										<td>Auctioneer:</td><td><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auctioneer&layout=default&id=" . $this->item->auctioneer); ?>"><strong><?php echo $this->item->auctioneer_name; ?></a></td>
+									</tr>
+								</table>
+								
 							</td>
 						</tr>
 					</table>
@@ -72,7 +103,9 @@ $sortFields=$this->getSortFields()
 								<li class="grid_lot">
 									<table width = "100%">
 										<tr>
-											<td colspan = "2">Lot: <strong><?php echo "#_" . $lot->title; ?></strong></td>
+											<td colspan = "2">
+											<h3>Lot: <a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=lot&layout=default&id=" . $lot->id); ?>"><?php echo "#_" . $lot->title; ?></a></h3>
+											</td>
 										</tr>
 										<tr>
 											<td colspan = "2">Description: <strong><?php echo "#_" . $lot->description; ?></strong></td>
@@ -83,9 +116,12 @@ $sortFields=$this->getSortFields()
 													<img src = "<?php echo JUri::base() . "images/com_gotauction/lots/" . $lot->images[0]->image; ?>" class = "profileSmall" />
 												</a>
 											</td>
-											<td>
+											<td class = "contentLinks" style="vertical-align:middle">
 												<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=lot&layout=default&id=" . $lot->id); ?>">View Lot</a> <br />
+												
+												<?php if (JFactory::getUser()->authorise('core.edit', 'com_gotauction')) : ?>
 												<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=editlot&layout=edit&id=" . $lot->id); ?>">Edit Lot</a>
+												<?php endif; ?>
 											</td>
 										</tr>
 									</table>
@@ -102,4 +138,5 @@ $sortFields=$this->getSortFields()
 	</div>
 	
 	<!-- END LIST OUTPUT -->
+</div> <!-- gotAuctionContainer -->
 </form>
