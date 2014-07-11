@@ -105,10 +105,23 @@
 	padding: 15px;
 }
 
-.grid_lot table td
+.gallery
 {
-	text-align: center;
+	
+	width: 24%;
+	min-height: 100px;
+	float: left;
+	background: #ddd;
+	border: 1px solid #6d6b6b;
+	box-shadow: 0px 0px 10px #888888;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 5px;
 }
+
+grid_lot
 
 div.auctionList
 {
@@ -144,6 +157,21 @@ div.lotList
 	float: left;
 }
 
+ul.galleryList
+{
+	margin: 0 auto;
+	list-style-type: none;
+	width: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
+	float: left;
+}
+
+div.galleryList
+{
+	float: left;
+}
+
 ul.lotList
 {
 	margin: 0 auto;
@@ -170,6 +198,12 @@ tr.trDetails
 {
 	background: #fff;
 	box-shadow: 0px 0px 1px #888888;
+}
+
+.types
+{
+	border-top: 1px solid #000;
+	margin-top: 15px;
 }
 
 .contentLinks

@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
+	
+	<fieldset name = "settings_css_fields" description="COM_GOTAUCTION_CONFIG_CSS_DESC" label="COM_GOTAUCTION_CONFIG_CSS_LABEL">
+		<field name="background_color" type="color"  label="COM_GOTAUCTION_BACKGROUND_COLOR_LABEL" description="COM_GOTAUCTION_BACKGROUND_COLOR_DESC" maxlength = "7" default = "#f3f3f3" />
+		<field name="background_border_color" type="color"  label="COM_GOTAUCTION_BACKGROUND_BORDER_COLOR_LABEL" description="COM_GOTAUCTION_BACKGROUND_COLOR_DESC" maxlength = "7" default = "#000" />	
+		<field name="background_border_size" type="text"  label="COM_GOTAUCTION_BACKGROUND_BORDER_SIZE_LABEL" description="COM_GOTAUCTION_BACKGROUND_SIZE_DESC" maxlength = "6" default = "1px" />	
+		
+		<field name="auction_content_color" type="color"  label="COM_GOTAUCTION_AUCTION_CONTENT_COLOR" description="COM_GOTAUCTION_AUCTION_CONTENT_COLOR_DESC" maxlength = "7" default = "#ddd" />	
+		<field name="auctioneer_content_color" type="color"  label="COM_GOTAUCTIONEER_AUCTION_CONTENT_COLOR" description="COM_GOTAUCTIONEER_AUCTION_CONTENT_COLOR_DESC" maxlength = "7" default = "#ddd" />	
+		<field name="lot_content_color" type="color"  label="COM_GOTAUCTION_LOT_CONTENT_COLOR" description="COM_GOTAUCTION_LOT_CONTENT_COLOR_DESC" maxlength = "7" default = "#ddd" />	
+		
+		<field name="content_border_color" type="color"  label="COM_GOTAUCTION_CONTENT_BORDER_COLOR_LABEL" description="COM_GOTAUCTION_CONTENT_BORDER_COLOR_LABEL_DESC" maxlength = "7" default = "#000" />	
+		<field name="content_border_size" type="text"  label="COM_GOTAUCTION_CONTENT_BORDER_SIZE_LABEL" description="COM_GOTAUCTION_CONTENT_BORDER_SIZE_LABEL_DESC" maxlength = "6" default = "1px" />	
+		<field name="content_border_radius" type="text"  label="COM_GOTAUCTION_CONTENT_BORDER_RADIUS_LABEL" description="COM_GOTAUCTION_CONTENT_BORDER_RADIUS_LABEL_DESC" maxlength = "6" default = "0px" />	
+	
+	</fieldset>
+	
+	<fieldset name = "settings_css_fields_links" description="COM_GOTAUCTION_CONFIG_CSS_LINKS_DESC" label="COM_GOTAUCTION_CONFIG_CSS_LINKS_LABEL">
+		<field name="component_menu_link_color" type="color"  label="COM_GOTAUCTION_MENULINK_COLOR" description="COM_GOTAUCTION_MENULINK_COLOR_DESC" maxlength = "7" default = "#6b7b68" />	
+		<field name="component_menu_link_color_hover" type="color"  label="COM_GOTAUCTION_MENULINKHOVER_COLOR" description="COM_GOTAUCTION_MENULINKHOVER_COLOR_DESC" maxlength = "7" default = "#282828" />	
+		<field name="component_submenu_link_color" type="color"  label="COM_GOTAUCTION_SUBMENULINK_COLOR" description="COM_GOTAUCTION_MENULINK_COLOR_DESC" maxlength = "7" default = "#6b7b68" />	
+		<field name="component_submenu_link_color_hover" type="color"  label="COM_GOTAUCTION_SUBMENULINKHOVER_COLOR" description="COM_GOTAUCTION_MENULINKHOVER_COLOR_DESC" maxlength = "7" default = "#282828" />	
+		
+		<field name="content_type_link_color" type="color"  label="COM_GOTAUCTION_CONTENTTYPELINK_COLOR" description="COM_GOTAUCTION_CONTENTTYPELINK_COLOR_DESC" maxlength = "7" default = "#6b7b68" />	
+		<field name="content_type_link_color_hover" type="color"  label="COM_GOTAUCTION_CONTENTTYPELINKHOVER_COLOR" description="COM_GOTAUCTION_CONTENTTYPELINKHOVER_COLOR_DESC" maxlength = "7" default = "#282828" />	
+		<field name="inner_content_link_color" type="color"  label="COM_GOTAUCTION_INNERCONTENTLINK_COLOR" description="COM_GOTAUCTION_INNERCONTENTLINK_COLOR_DESC" maxlength = "7" default = "#6b7b68" />	
+		<field name="inner_content_link_color_hover" type="color"  label="COM_GOTAUCTION_INNERCONTENTLINKHOVER_COLOR" description="COM_GOTAUCTION_INNERCONTENTLINKHOVER_COLOR_DESC" maxlength = "7" default = "#282828" />	
+		
+	</fieldset>
+	
 	<fieldset name="permissions" description="JCONFIG_PERMISSIONS_DESC" label="JCONFIG_PERMISSIONS_LABEL">
 		
 		<field name="rules" type="rules" component="com_gotauction" filter="rules" validate="rules"

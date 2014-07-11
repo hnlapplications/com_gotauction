@@ -38,6 +38,7 @@ JHtml::_('jquery.framework');
 		$document->addStyleSheet($url);
 		require_once JPATH_COMPONENT_ADMINISTRATOR . '/helpers/gotauction.php';
 		GotauctionHelper::getMenu();
+		GotauctionHelper::setCSS();
 	?>
 </div>
 

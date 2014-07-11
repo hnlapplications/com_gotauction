@@ -145,14 +145,15 @@ JHtml::_('jquery.framework');
 		$document->addStyleSheet($url);
 		require_once JPATH_COMPONENT_ADMINISTRATOR . '/helpers/gotauction.php';
 		GotauctionHelper::getMenu();
+		GotauctionHelper::setCSS();
 	?>
 </div>
 
 <h1>GotAuction Settings</h1>
-<form action="<?php echo JRoute::_('index.php?option=com_gotauction&view=setting&layout=edit&id=1'); ?>" method="POST" enctype="multipart/form-data" name="adminForm" id="adminForm" class=form-validate">
+<form action="<?php echo JRoute::_('index.php?option=com_gotauction&view=setting&layout=edit&id=1'); ?>" method="POST" enctype="multipart/form-data" name="adminForm" id="adminForm" class="form-validate">
 	<div class="btn-toolbar">
 		<div class="btn-group">
-			<button tyoe="button" class="btn btn-primary" onclick="Joomla.submitbutton('setting.save');">
+			<button type="button" class="btn btn-primary" onclick="Joomla.submitbutton('setting.save');">
 				<i class="icon-new"></i> Save and Close
 			</button>
 		</div>
@@ -227,7 +228,6 @@ JHtml::_('jquery.framework');
 					?>
 					
 					
-					
 				<?php echo JHtml::_('bootstrap.endPanel'); ?>
 				
 				<input type="hidden" name="task" value="" />
@@ -237,14 +237,14 @@ JHtml::_('jquery.framework');
 			</fieldset>
 		</div>
 	</div>
-</div> <!-- gotAuctionContainer -->
+
 </form>
 
 <div class="row-fluid">
 	<div class="row-fluid span4 well" >
 		<strong>Auction Types</strong>
 		<button class="btn btn-primary  pull-right" onclick="manageType('auctiontype', true); ">New</button><br />
-		<div id="auction_types" class="row-fluid">
+		<div id="auction_types" class="types">
 			<?php 
 				if (count($this->auction_types)==0):
 			?>
@@ -256,7 +256,10 @@ JHtml::_('jquery.framework');
 						<?php
 							foreach($this->auction_types as $auction_type):
 						?>
-							<tr><td><?php echo $auction_type->title; ?></td>
+							<tr>
+								<td><?php echo $auction_type->title; ?></td>
+							</tr>
+							<tr>
 								<td style = "padding: 5px;">
 									<button class="btn btn-primary  pull-right" onclick="deleteType('auctiontype', <?php echo $auction_type->id; ?>); ">Delete</button>
 									<button class="btn btn-primary  pull-right" onclick="manageType('auctiontype', false, <?php echo $auction_type->id; ?>); ">Edit</button>
@@ -274,7 +277,7 @@ JHtml::_('jquery.framework');
 	<div class="row-fluid span4 well">
 		<strong>Auction Categories</strong>
 		<button class="btn btn-primary  pull-right" onclick="manageType('auctioncategory', true); ">New</button><br />
-		<div id="auction_categories" class="row-fluid">
+		<div id="auction_categories" class="types">
 			<?php 
 				if (count($this->auction_categories)==0):
 			?>
@@ -286,7 +289,10 @@ JHtml::_('jquery.framework');
 						<?php
 							foreach($this->auction_categories as $auction_category):
 						?>
-							<tr><td><?php echo $auction_category->title; ?></td>
+							<tr>
+								<td><?php echo $auction_category->title; ?></td>
+							</tr>
+							<tr>
 								<td style = "padding: 5px;">
 									<button class="btn btn-primary  pull-right" onclick="deleteType('auctioncategory', <?php echo $auction_category->id; ?>); ">Delete</button>
 									<button class="btn btn-primary  pull-right" onclick="manageType('auctioncategory', false, <?php echo $auction_category->id; ?>); ">Edit</button>
@@ -304,7 +310,7 @@ JHtml::_('jquery.framework');
 	<div class="row-fluid span4 well">
 		<strong>Lot Types</strong>
 		<button class="btn btn-primary pull-right" onclick="manageType('lottype', true); ">New</button><br />
-		<div id="lot_types" class="row-fluid">
+		<div id="lot_types" class="types">
 			<?php 
 				if (count($this->lot_types)==0):
 			?>
@@ -318,6 +324,8 @@ JHtml::_('jquery.framework');
 						?>
 							<tr>
 								<td><?php echo $lot_type->title; ?></td>
+							</tr>
+							<tr>
 								<td style = "padding: 5px;">
 									<button class="btn btn-primary  pull-right" onclick="deleteType('lottype', <?php echo $lot_type->id; ?>); ">Delete</button>
 									<button class="btn btn-primary  pull-right" onclick="manageType('lottype', false, <?php echo $lot_type->id; ?>); ">Edit</button>
@@ -338,7 +346,7 @@ JHtml::_('jquery.framework');
 		<input type="text" id="new_type_name" /><br />
 	</div>
 </div>
-
+</div> <!-- gotAuctionContainer -->
 
 
 

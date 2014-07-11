@@ -56,7 +56,7 @@ class GotauctionControllerSetting extends JControllerForm
 			$settings->id				=	$settings_id;
 			$settings->company_name		=	$data['company_name'];
 			$settings->director			=	$data['director'];
-			$settings->contact_no		=	$data['contact_number'];
+			$settings->contact_no		=	$data['contact_no'];
 			$settings->email			=	$data['email'];
 			$settings->logo				=	$data['logo'];
 			$settings->address			=	$address_id;
@@ -83,7 +83,7 @@ class GotauctionControllerSetting extends JControllerForm
 			$settings=new stdClass();
 			$settings->company_name		=	$data['company_name'];
 			$settings->director			=	$data['director'];
-			$settings->contact_no		=	$data['contact_number'];
+			$settings->contact_no		=	$data['contact_no'];
 			$settings->email			=	$data['email'];
 			$settings->logo				=	$data['logo'];
 			$settings->address			=	$address_id;

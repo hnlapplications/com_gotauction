@@ -13,7 +13,6 @@
 		<field name="post_code" type="text"  label="COM_GOTAUCTION_POST_CODE_LABEL" description="COM_GOTAUCTION_POST_CODE_DESC" required="true"/>
 		<field name="gps_x" type="text"  label="COM_GOTAUCTION_GPS_X_LABEL" description="COM_GOTAUCTION_GPS_X_DESC" required="true" />
 		<field name="gps_y" type="text"  label="COM_GOTAUCTION_GPS_Y_LABEL" description="COM_GOTAUCTION_GPS_Y_DESC" required="true" />
-		
-		
 	</fieldset>
+	
 </form>

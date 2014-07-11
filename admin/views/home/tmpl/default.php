@@ -1,6 +1,7 @@
 <?php
 
 defined("_JEXEC") or die();
+$user = JFactory::getUser();
 //$front_url=JRoute::_('index.php?option=com_gotauction');
 ?>
 

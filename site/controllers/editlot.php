@@ -92,7 +92,8 @@ class GotauctionControllerEditlot extends JControllerForm
 		}
 		//set redirect
 		
-		$this->setRedirect(JRoute::_("index.php?option=com_gotauction&view=lot&layout=default&id=" . $lot_id));
+		//$this->setRedirect(JRoute::_("index.php?option=com_gotauction&view=lot&layout=default&id=" . $lot_id));
+		$this->setRedirect(JRoute::_("index.php?option=com_gotauction&view=auction&layout=default&id=" . $lot->auction_id));
 			
 	}
 	

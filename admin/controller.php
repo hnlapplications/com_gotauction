@@ -13,6 +13,7 @@ class GotauctionController extends JControllerLegacy
 		$id=$this->input->get('id');
 		
 		parent::display();
+		
 		return $this;
 	}
 }

@@ -24,6 +24,7 @@ $sortFields=$this->getSortFields()
 			$document->addStyleSheet($url);
 			require_once JPATH_COMPONENT_ADMINISTRATOR . '/helpers/gotauction.php';
 			GotauctionHelper::getMenu();
+			GotauctionHelper::setCSS();
 		?>
 	</div>
 
@@ -43,7 +44,7 @@ $sortFields=$this->getSortFields()
 	<div class="grid_auction2">
 		<table width = "100%">
 			<tr>
-				<td width = "50%"><h2><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auction&layout=default&id=" . $this->item->id); ?>"><strong><?php echo $this->item->title; ?></strong><br /></a></h2></td>
+				<td width = "50%"><h2><strong><?php echo $this->item->title; ?></strong><br /></h2></td>
 				<td width = "50%"><h3>Auction ID: <strong><?php echo "#_" . $this->item->auction_id; ?></strong></h3></td>
 			</tr>
 			<tr>
@@ -84,12 +85,14 @@ $sortFields=$this->getSortFields()
 							<td>Description:</td><td><strong><?php echo $this->item->description; ?></strong></td>
 						</tr>
 						<tr>
-							<td>Auctioneer:</td><td><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auctioneer&layout=default&id=" . $this->item->auctioneer); ?>"><strong><?php echo $this->item->auctioneer_name; ?></a></td>
+							<td>Auctioneer:</td><td class = "contentLinks"><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auctioneer&layout=default&id=" . $this->item->auctioneer); ?>"><strong><?php echo $this->item->auctioneer_name; ?></a></td>
 						</tr>
 					</table>
 					
 				</td>
 			</tr>
+			<tr>
+				<td width = "50%"><h2 class = "contentLinks"><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=gallery&layout=default&id=" . $this->item->id); ?>"><strong>Gallery</strong><br /></a></h2></td>			</tr>
 		</table>
 	</div>
 				

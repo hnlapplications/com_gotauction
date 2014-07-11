@@ -1,4 +1,6 @@
-<?php defined ("_JEXEC") or die();
+<?php 
+
+	defined ("_JEXEC") or die();
 
 //this is the controller for the home view
 

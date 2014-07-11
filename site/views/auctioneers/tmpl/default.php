@@ -51,6 +51,7 @@ $canEdit=JFactory::getUser()->authorise('core.edit', 'com_gotauction');
 			$document->addStyleSheet($url);
 			require_once JPATH_COMPONENT_ADMINISTRATOR . '/helpers/gotauction.php';
 			GotauctionHelper::getMenu();
+			GotauctionHelper::setCSS();
 		?>
 	</div>
 
@@ -157,7 +158,7 @@ $canEdit=JFactory::getUser()->authorise('core.edit', 'com_gotauction');
 						<tr>
 							<td colspan = "2">
 								<ul class = "listDetails">
-									<li> Name: <a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auctioneer&layout=default&id=" . $item->id); ?>"><strong><?php echo $item->name; ?></strong></a> </li>
+									<li class = "contentLinks"> Name: <a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auctioneer&layout=default&id=" . $item->id); ?>"><strong><?php echo $item->name; ?></strong></a> </li>
 									<li> Tel No: <strong><?php echo $item->contact_no; ?></strong> </li>
 									<li> Company: <strong><?php echo $item->company; ?></strong> </li>
 									<li> Email: <strong><?php echo $item->email; ?></strong> </li>
