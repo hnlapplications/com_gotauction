@@ -1,3 +1,29 @@
+
+/**************************************/
+
+.auctionImgContainer
+{
+	width: 100%;
+	float: left;
+}
+
+.twoColumnLayout
+{
+	float: left;
+	width: 45%;
+}
+
+.twoColumnLayoutSecond
+{
+	margin-left: 20px;
+}
+
+.auctionGridImgs
+{
+	width: 45%; 
+	float: left; 
+	padding: 5px;
+}
 /*.grid_auction 
 {
     background-color: rgba(192, 192, 192, 0.5);
@@ -107,17 +133,16 @@
 
 .gallery
 {
-	
-	width: 24%;
+	width: 20%;
 	min-height: 100px;
 	float: left;
 	background: #ddd;
 	border: 1px solid #6d6b6b;
 	box-shadow: 0px 0px 10px #888888;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
 	padding: 5px;
 }
 
@@ -242,7 +267,7 @@ img.medium
 img.big
 {
 	width: 320px;
-	height: 200px;
+	/*height: 200px;*/
 	box-shadow: 0 10px 10px -2px black;
 }
 
@@ -323,5 +348,206 @@ ul.componentMenu a:hover
 .ordering
 {
 	
+}
+
+.contentTable
+{
+	width: 100%;
+}
+
+.auctionID
+{
+	text-align: right;
+}
+
+
+/*****************************************/
+/******     Responsive Design      *******/
+/*****************************************/
+
+img {
+	max-width: 100%;
+	height: auto;
+	margin: 0 0 10px 0;
+}
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+
+@media screen and (max-width: 800px) {
+
+	.auctionImgContainerSecondFirst
+	{
+		width: 100%;
+	}
+	.auctionImgContainer
+	{
+		width: 45%;
+		/*float: left;*/
+	}
+	
+	.auctionImgContainerSecond
+	{
+		float: right;
+	}
+
+	.twoColumnLayout
+	{
+		width: 100%;
+	}
+	
+	.twoColumnLayoutSecond
+	{
+		margin-left: 0px;
+	}
+	
+	.auctionImgContainerThird
+	{
+		float: left;
+		width: 100%;
+	}
+	
+	.auctionGridImgs
+	{
+		width: 28%; 
+		float: left; 
+		padding: 5px;
+	}
+	
+	.contentTable
+	{
+		/*width: 100%;*/
+	}
+
+	/*** Auctioneers ***/
+	.grid_auctioneer
+	{
+		width: 90%;
+	}
+	
+	/*** Auction ***/
+	.grid_lot
+	{
+		width: 40%;
+	}
+	
+	.gallery
+	{
+		width: 30%;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	
+	
+		/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		/*padding-left: 50%; */
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+
+}
+@media screen and (max-width: 750px) {
+	
+	/*** Auction ***/
+	.grid_lot
+	{
+		width: 90%;
+	}
+	
+	.gallery
+	{
+		width: 45%;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	
+}
+
+@media screen and (max-width: 500px) {
+
+	.auctionImgContainer
+	{
+		width: 100%;
+		/*float: left;*/
+	}
+	
+	.auctionImgContainerSecond
+	{
+		float: left;
+	}
+
+	.twoColumnLayout
+	{
+		width: 100%;
+	}
+	
+	.twoColumnLayoutSecond
+	{
+		margin-left: 0px;
+	}
+	
+	.auctionGridImgs
+	{
+		width: 45%; 
+		float: left; 
+		padding: 5px;
+	}
+	
+	.gallery
+	{
+		width: 90%;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	
+
+}
+
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+
 }
 

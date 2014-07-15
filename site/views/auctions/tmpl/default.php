@@ -124,93 +124,96 @@ $sortFields=$this->getSortFields()
 	
 	<!-- LIST OUTPUT-->
 	
-	<div class="table auctionList">
+	
+	
+	<div class="table auctionList clearfix">
 
 			<ul class = "auctionList">
 				<?php foreach($this->items as $item): ?>
 					
 					<li class="grid_auction">
+						<div class = " clearfix">
 						<table width = "100%">
 							<tr>
 								<td width = "50%"><h2 class = "contentTypeLinks"><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auction&layout=default&id=" . $item->id); ?>"><strong><?php echo $item->title; ?></strong><br /></a></h2></td>
-								<td width = "50%"><h3>Auction ID: <strong><?php echo "#_" . $item->auction_id; ?></strong></h3></td>
-							</tr>
-							<tr>
-								<td width = "60%">
-									<?php $images=$this->getImages($item->id); //echo "<pre>" . print_r($images, true) . "</pre>"; 
-									 
-										$count = count($images); 
-										$count--;
-										$rand = 0;
-									?>
-									<table>
-										<tr>
-											<td>
-												<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=editauctioneer&layout=edit&id=" . $item->id); ?>">
-													<img src = "<?php echo JUri::base() . "images/com_gotauction/lots/" . $images[0]; ?>" class = "big" />
-												</a>
-											</td>
-										</tr>
-										
-									</table>
-								</td>
-								<td>
-									<div style = "width: 100%;">
-									<?php for($i = 0; $i < 6; $i++) : ?>
-										<div style = "width: 45%; float: left; padding: 5px;">
-										<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=editauctioneer&layout=edit&id=" . $item->id); ?>">
-											<img src = "<?php $rand = rand(0, $count); echo JUri::base() . "images/com_gotauction/lots/" . $images[$rand]; ?>" class = "small" />
-										</a>
-										</div>
-									<?php endfor; ?>
-									</div>
-								</td>
+								<td class = "auctionID" width = "50%"><h3>Auction ID: <strong><?php echo "#_" . $item->auction_id; ?></strong></h3></td>
 							</tr>
 						</table>
-				
+						</div>
+						<div class = "auctionImgContainer clearfix">
+							<div class = "twoColumnLayout">
+								<?php $images=$this->getImages($item->id); //echo "<pre>" . print_r($images, true) . "</pre>"; 
+								 
+									$count = count($images); 
+									$count--;
+									$rand = 0;
+								?>
+								
+								<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=editauctioneer&layout=edit&id=" . $item->id); ?>">
+									<img src = "<?php echo JUri::base() . "images/com_gotauction/lots/" . $images[0]; ?>" class = "big" />
+								</a>
+								
+							</div>
+							<div class = "twoColumnLayout twoColumnLayoutSecond">
+								<?php for($i = 0; $i < 6; $i++) : ?>
+									<div class = "auctionGridImgs">
+									<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=editauctioneer&layout=edit&id=" . $item->id); ?>">
+										<img src = "<?php $rand = rand(0, $count); echo JUri::base() . "images/com_gotauction/lots/" . $images[$rand]; ?>" class = "small" />
+									</a>
+									</div>
+								<?php endfor; ?>
+							</div>
+						</div>
+						<div class = "auctionImgContainer auctionImgContainerSecond clearfix">
+
+							<table class = "contentTable">
+								<tr class = "trDetails">
+									<td>
+										<table class = "listDetails">
+											<tr>
+												<td>Category:</td><td><strong><?php echo $item->auction_category_title; ?></strong></td>
+											</tr>
+											<tr>
+												<td>Type:</td><td><strong><?php echo $item->auction_type_title; ?></strong></td>
+											</tr>
+											<tr>
+												<td>Date:</td><td><strong><?php echo $item->date; ?></strong></td>
+											</tr>
+											<tr>
+												<td>Time:</td><td><strong><?php echo $item->time; ?></strong></td>
+											</tr>
+											<tr>
+												<td>Viewing Date:</td><td><strong><?php echo $item->viewing_date; ?></strong></td>
+											</tr>
+											<tr>
+												<td>Viewing Time:</td><td><strong><?php echo $item->viewing_time; ?></strong></td>
+											</tr>
+										</table>
+									</td>
+									<td>
+										<table class = "listDetails">
+											<tr>
+												<td>Address:</td><td><strong><?php echo $item->street_number . " ". $item->street_name . ", ". 
+																						$item->suburb . "<br /> ". $item->city . ", ". 
+																						$item->post_code ?></strong></td>
+											</tr>
+											<tr>
+												<td>GPS:</td><td><strong><?php echo $item->gps_x . ", ". $item->gps_y; ?></strong></td>
+											</tr>
+											<tr>
+												<td>Description:</td><td><strong><?php echo $item->description; ?></strong></td>
+											</tr>
+											<tr>
+												<td>Auctioneer:</td><td class = "contentLinks"><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auctioneer&layout=default&id=" . $item->auctioneer); ?>"><strong><?php echo $item->auctioneer_name; ?></a></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+								
+							</table>
+						</div>
+						<div class = "auctionImgContainer auctionImgContainerThird clearfix">
 						<table width = "100%">
-							<tr class = "trDetails">
-								<td>
-									<table class = "listDetails">
-										<tr>
-											<td>Category:</td><td><strong><?php echo $item->auction_category_title; ?></strong></td>
-										</tr>
-										<tr>
-											<td>Type:</td><td><strong><?php echo $item->auction_type_title; ?></strong></td>
-										</tr>
-										<tr>
-											<td>Date:</td><td><strong><?php echo $item->date; ?></strong></td>
-										</tr>
-										<tr>
-											<td>Time:</td><td><strong><?php echo $item->time; ?></strong></td>
-										</tr>
-										<tr>
-											<td>Viewing Date:</td><td><strong><?php echo $item->viewing_date; ?></strong></td>
-										</tr>
-										<tr>
-											<td>Viewing Time:</td><td><strong><?php echo $item->viewing_time; ?></strong></td>
-										</tr>
-									</table>
-								</td>
-								<td>
-									<table class = "listDetails">
-										<tr>
-											<td>Address:</td><td><strong><?php echo $item->street_number . " ". $item->street_name . ", ". 
-																					$item->suburb . "<br /> ". $item->city . ", ". 
-																					$item->post_code ?></strong></td>
-										</tr>
-										<tr>
-											<td>GPS:</td><td><strong><?php echo $item->gps_x . ", ". $item->gps_y; ?></strong></td>
-										</tr>
-										<tr>
-											<td>Description:</td><td><strong><?php echo $item->description; ?></strong></td>
-										</tr>
-										<tr>
-											<td>Auctioneer:</td><td class = "contentLinks"><a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auctioneer&layout=default&id=" . $item->auctioneer); ?>"><strong><?php echo $item->auctioneer_name; ?></a></td>
-										</tr>
-									</table>
-								</td>
-							</tr>
 							<tr class = "contentLinks">
 								<td>
 									<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=auction&layout=default&id=" . $item->id); ?>">View Auction</a>
@@ -222,7 +225,7 @@ $sortFields=$this->getSortFields()
 								</td>
 							</tr>
 						</table>
-					
+						</div>
 					</li>
 				<?php endforeach; ?>
 			</ul>

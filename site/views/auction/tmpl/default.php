@@ -41,11 +41,11 @@ $sortFields=$this->getSortFields()
 	
 	<!-- LIST OUTPUT-->
 	
-	<div class="grid_auction2">
+	<div class = "grid_auction2 clearfix">
 		<table width = "100%">
 			<tr>
-				<td width = "50%"><h2><strong><?php echo $this->item->title; ?></strong><br /></h2></td>
-				<td width = "50%"><h3>Auction ID: <strong><?php echo "#_" . $this->item->auction_id; ?></strong></h3></td>
+				<td ><h2><strong><?php echo $this->item->title; ?></strong><br /></h2></td>
+				<td ><h3>Auction ID: <strong><?php echo "#_" . $this->item->auction_id; ?></strong></h3></td>
 			</tr>
 			<tr>
 				<td>

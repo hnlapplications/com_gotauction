@@ -47,16 +47,11 @@ $sortFields=$this->getSortFields()
 		<ul class = "galleryList">
 			<?php foreach($this->lots as $lot): ?>
 					<li class="gallery">
-						<table width = "100%">
-							<tr>
-								<td>
-									<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=editauctioneer&layout=edit&id=" . $item->id); ?>">
-										<img src = "<?php echo JUri::base() . "images/com_gotauction/lots/" . $lot->images[0]->image; ?>" class = "smallLot" />
-									</a>
-								</td>
-							</tr>
-							
-						</table>
+						
+						<a href="<?php echo JRoute::_("index.php?option=com_gotauction&view=editauctioneer&layout=edit&id=" . $item->id); ?>">
+							<img src = "<?php echo JUri::base() . "images/com_gotauction/lots/" . $lot->images[0]->image; ?>" class = "smallLot" />
+						</a>
+					
 					</li>
 			<?php endforeach; ?>
 		</ul>
